@@ -89,7 +89,6 @@ class MobileNavigation {
 
         // Add additional mobile-specific items
         menuItems.push(
-            { icon: '<i data-lucide="log-in" class="w-5 h-5"></i>', text: 'Login', href: 'login.html' },
             { icon: '<i data-lucide="user-plus" class="w-5 h-5"></i>', text: 'Sign Up', href: 'register.html' }
         );
 
