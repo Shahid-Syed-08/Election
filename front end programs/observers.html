@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Observer Networks - Election Monitoring System</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/lucide-static@0.263.1/font/lucide.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="bg-gradient-to-br from-blue-50 to-gray-100 min-h-screen">
+    <!-- Navigation Header -->
+    <header class="bg-white shadow-lg border-b-4 border-orange-500">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between py-4">
+                <div class="flex items-center space-x-4">
+                    <a href="home.html" class="flex items-center space-x-4">
+                        <div class="w-12 h-12 bg-gradient-to-r from-orange-500 via-white to-green-500 rounded-full flex items-center justify-center shadow-lg">
+                            <i data-lucide="vote" class="w-8 h-8 text-blue-600"></i>
+                        </div>
+                        <div>
+                            <h1 class="text-2xl font-bold text-gray-900">Election Monitoring System</h1>
+                            <p class="text-sm text-gray-600">भारतीय निर्वाचन आयोग</p>
+                        </div>
+                    </a>
+                </div>
+                <button onclick="window.history.back()" class="bg-gray-500 hover:bg-gray-600 text-white px-4 py-2 rounded-lg">
+                    <i data-lucide="arrow-left" class="w-4 h-4 mr-2"></i>Back to Home
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="flex-1 py-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <!-- Header -->
+            <div class="text-center mb-12">
+                <div class="w-16 h-16 mx-auto mb-4 bg-gradient-to-r from-green-500 to-green-600 rounded-full flex items-center justify-center">
+                    <i data-lucide="users" class="w-8 h-8 text-white"></i>
+                </div>
+                <h1 class="text-3xl font-bold text-gray-900 mb-4">Observer Networks</h1>
+                <p class="text-xl text-gray-600">Trained observers deployed across constituencies</p>
+            </div>
+
+            <!-- Observer Statistics -->
+            <div class="grid md:grid-cols-4 gap-6 mb-8">
+                <div class="text-center p-6 bg-green-50 rounded-xl">
+                    <div class="text-3xl font-bold text-green-600 mb-2">15,000+</div>
+                    <div class="text-sm text-green-800">Total Observers</div>
+                </div>
+                <div class="text-center p-6 bg-blue-50 rounded-xl">
+                    <div class="text-3xl font-bold text-blue-600 mb-2">98.5%</div>
+                    <div class="text-sm text-blue-800">Active Deployment</div>
+                </div>
+                <div class="text-center p-6 bg-orange-50 rounded-xl">
+                    <div class="text-3xl font-bold text-orange-600 mb-2">2,600+</div>
+                    <div class="text-sm text-orange-800">Constituencies Covered</div>
+                </div>
+                <div class="text-center p-6 bg-purple-50 rounded-xl">
+                    <div class="text-3xl font-bold text-purple-600 mb-2">24/7</div>
+                    <div class="text-sm text-purple-800">Monitoring</div>
+                </div>
+            </div>
+
+            <!-- Observer Network Map -->
+            <div class="bg-white rounded-xl p-6 shadow-lg mb-8">
+                <h3 class="text-lg font-semibold mb-4 flex items-center">
+                    <i data-lucide="map" class="w-5 h-5 mr-2 text-blue-600"></i>
+                    Observer Network Map
+                </h3>
+                <div class="network-map relative rounded-lg p-4">
+                    <div class="text-center text-white py-16">
+                        <i data-lucide="map-pin" class="w-16 h-16 mx-auto mb-4 text-blue-300"></i>
+                        <p class="text-blue-200">Live observer network visualization</p>
+                        <p class="text-blue-300 text-sm">15,000+ observers actively monitoring nationwide</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Observer Teams -->
+            <div class="grid md:grid-cols-2 gap-8">
+                <!-- Domestic Observers -->
+                <div class="bg-white rounded-xl p-6 shadow-lg">
+                    <h3 class="text-lg font-semibold mb-4 flex items-center">
+                        <i data-lucide="user-check" class="w-5 h-5 mr-2 text-green-600"></i>
+                        Domestic Observer Teams
+                    </h3>
+                    <div class="space-y-3">
+                        <div class="flex justify-between items-center p-3 bg-green-50 rounded-lg">
+                            <span class="text-sm font-semibold">ECI Officials</span>
+                            <span class="text-green-600 font-semibold">5,200</span>
+                        </div>
+                        <div class="flex justify-between items-center p-3 bg-green-50 rounded-lg">
+                            <span class="text-sm font-semibold">State Election Officers</span>
+                            <span class="text-green-600 font-semibold">3,800</span>
+                        </div>
+                        <div class="flex justify-between items-center p-3 bg-green-50 rounded-lg">
+                            <span class="text-sm font-极emibold">Polling Station Officers</span>
+                            <span class="text-green-600 font-semibold">6,000</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- International Observers -->
+                <div class="bg-white rounded-xl p-6 shadow-lg">
+                    <h3 class="text-lg font-semibold mb-4 flex items-center">
+                        <i data-lucide="globe" class="w-5 h-5 mr-2 text-blue-600"></i>
+                        International Observer Teams
+                    </h3>
+                    <div class="space-y-3">
+                        <div class="flex justify-between items-center p-3 bg-blue-50 rounded-lg">
+                            <span class="text-sm font-semibold">UN Delegates</span>
+                            <span class="text-blue-600 font-semibold">150</span>
+                        </div>
+                        <div class="flex justify-between items-center p-3 bg-blue-50 rounded-lg">
+                            <span class="text-sm font-semibold">Commonwealth Observers</span>
+                            <span class="text-blue-600 font-semibold">85</span>
+                        </div>
+                        <div class="flex justify-between items-center p-3 bg-blue-50 rounded-lg">
+                            <span class="text-sm font-semibold">International NGOs</span>
+                            <span class="text-blue-600 font-semibold">220</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12 mt-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <p>&copy; 2024 Election Commission of India. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Initialize Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+    <script>
+        // Initialize all icons
+        lucide.createIcons();
+    </script>
+</body>
+</html>

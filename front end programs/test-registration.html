@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Registration - Election Monitoring System</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 min-h-screen p-8">
+    <div class="max-w-2xl mx-auto">
+        <h1 class="text-3xl font-bold text-center mb-8">Test Registration</h1>
+        
+        <div class="bg-white rounded-lg shadow-lg p-6">
+            <h2 class="text-xl font-semibold mb-4">Test User Registration</h2>
+            
+            <form id="testForm" class="space-y-4">
+                <div>
+                    <label class="block text-sm font-medium text-gray-700">First Name</label>
+                    <input type="text" id="firstName" value="Test" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md">
+                </div>
+                
+                <div>
+                    <label class="block text-sm font-medium text-gray-700">Last Name</label>
+                    <input type="text" id="lastName" value="User" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md">
+                </div>
+                
+                <div>
+                    <label class="block text-sm font-medium text-gray-700">Username (Optional)</label>
+                    <input type="text" id="username" value="testuser" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md">
+                </div>
+                
+                <div>
+                    <label class="block text-sm font-medium text-gray-700">Email</label>
+                    <input type="email" id="email" value="test@example.com" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md">
+                </div>
+                
+                <div>
+                    <label class="block text-sm font-medium text-gray-700">Phone</label>
+                    <input type="tel" id="phone" value="+919876543210" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md">
+                </div>
+                
+                <div>
+                    <label class="block text-sm font-medium text-gray-700">Role</label>
+                    <select id="role" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md">
+                        <option value="observer">Election Observer</option>
+                        <option value="coordinator">Coordinator</option>
+                        <option value="admin">Administrator</option>
+                        <option value="monitor">Monitor</option>
+                    </select>
+                </div>
+                
+                <div>
+                    <label class="block text-sm font-medium text-gray-700">Organization</label>
+                    <input type="text" id="organization" value="Test Organization" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md">
+                </div>
+                
+                <div>
+                    <label class="block text-sm font-medium text-gray-700">Password</label>
+                    <input type="password" id="password" value="TestPass123" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md">
+                </div>
+                
+                <button type="submit" class="w-full bg-blue-600 text-white py-2 px-4 rounded-md hover:bg-blue-700">
+                    Test Registration
+                </button>
+            </form>
+            
+            <div id="result" class="mt-6 p-4 rounded-md hidden"></div>
+        </div>
+        
+        <div class="mt-8 bg-white rounded-lg shadow-lg p-6">
+            <h2 class="text-xl font-semibold mb-4">Test Login</h2>
+            
+            <form id="testLoginForm" class="space-y-4">
+                <div>
+                    <label class="block text-sm font-medium text-gray-700">Email or Username</label>
+                    <input type="text" id="loginInput" value="test@example.com" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md">
+                </div>
+                
+                <div>
+                    <label class="block text-sm font-medium text-gray-700">Password</label>
+                    <input type="password" id="loginPassword" value="TestPass123" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md">
+                </div>
+                
+                <button type="submit" class="w-full bg-green-600 text-white py-2 px-4 rounded-md hover:bg-green-700">
+                    Test Login
+                </button>
+            </form>
+            
+            <div id="loginResult" class="mt-6 p-4 rounded-md hidden"></div>
+        </div>
+    </div>
+
+    <script>
+        // Test Registration
+        document.getElementById('testForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            const formData = {
+                firstName: document.getElementById('firstName').value,
+                lastName: document.getElementById('lastName').value,
+                username: document.getElementById('username').value,
+                email: document.getElementById('email').value,
+                phone: document.getElementById('phone').value,
+                role: document.getElementById('role').value,
+                organization: document.getElementById('organization').value,
+                password: document.getElementById('password').value
+            };
+            
+            const resultDiv = document.getElementById('result');
+            resultDiv.className = 'mt-6 p-4 rounded-md';
+            resultDiv.classList.remove('hidden');
+            
+            try {
+                console.log('Sending registration data:', formData);
+                
+                const response = await fetch('http://localhost:3000/api/auth/register', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(formData)
+                });
+                
+                const data = await response.json();
+                console.log('Registration response:', data);
+                
+                if (response.ok) {
+                    resultDiv.className = 'mt-6 p-4 rounded-md bg-green-100 border border-green-400 text-green-700';
+                    resultDiv.innerHTML = `
+                        <h3 class="font-semibold">Registration Successful!</h3>
+                        <p>User ID: ${data.user.id}</p>
+                        <p>Username: ${data.user.username}</p>
+                        <p>Email: ${data.user.email}</p>
+                        <p>Token: ${data.token.substring(0, 20)}...</p>
+                    `;
+                } else {
+                    resultDiv.className = 'mt-6 p-4 rounded-md bg-red-100 border border-red-400 text-red-700';
+                    resultDiv.innerHTML = `
+                        <h3 class="font-semibold">Registration Failed</h3>
+                        <p>Status: ${response.status}</p>
+                        <p>Message: ${data.message}</p>
+                    `;
+                }
+            } catch (error) {
+                console.error('Registration error:', error);
+                resultDiv.className = 'mt-6 p-4 rounded-md bg-red-100 border border-red-400 text-red-700';
+                resultDiv.innerHTML = `
+                    <h3 class="font-semibold">Network Error</h3>
+                    <p>Error: ${error.message}</p>
+                `;
+            }
+        });
+        
+        // Test Login
+        document.getElementById('testLoginForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            const loginInput = document.getElementById('loginInput').value;
+            const password = document.getElementById('loginPassword').value;
+            
+            const isEmail = loginInput.includes('@');
+            const requestBody = isEmail 
+                ? { email: loginInput, password }
+                : { username: loginInput, password };
+            
+            const resultDiv = document.getElementById('loginResult');
+            resultDiv.className = 'mt-6 p-4 rounded-md';
+            resultDiv.classList.remove('hidden');
+            
+            try {
+                console.log('Sending login data:', requestBody);
+                
+                const response = await fetch('http://localhost:3000/api/auth/login', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(requestBody)
+                });
+                
+                const data = await response.json();
+                console.log('Login response:', data);
+                
+                if (response.ok) {
+                    resultDiv.className = 'mt-6 p-4 rounded-md bg-green-100 border border-green-400 text-green-700';
+                    resultDiv.innerHTML = `
+                        <h3 class="font-semibold">Login Successful!</h3>
+                        <p>User ID: ${data.user.id}</p>
+                        <p>Username: ${data.user.username}</p>
+                        <p>Email: ${data.user.email}</p>
+                        <p>Role: ${data.user.role}</p>
+                        <p>Token: ${data.token.substring(0, 20)}...</p>
+                    `;
+                } else {
+                    resultDiv.className = 'mt-6 p-4 rounded-md bg-red-100 border border-red-400 text-red-700';
+                    resultDiv.innerHTML = `
+                        <h3 class="font-semibold">Login Failed</h3>
+                        <p>Status: ${response.status}</p>
+                        <p>Message: ${data.message}</p>
+                    `;
+                }
+            } catch (error) {
+                console.error('Login error:', error);
+                resultDiv.className = 'mt-6 p-4 rounded-md bg-red-100 border border-red-400 text-red-700';
+                resultDiv.innerHTML = `
+                    <h3 class="font-semibold">Network Error</h3>
+                    <p>Error: ${error.message}</p>
+                `;
+            }
+        });
+    </script>
+</body>
+</html>

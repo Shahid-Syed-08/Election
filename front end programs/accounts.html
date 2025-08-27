@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Account Management - Election Monitoring System</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://unpkg.com/lucide@latest/dist/umd/lucide.css" rel="stylesheet">
+</head>
+<body class="bg-gray-50 min-h-screen">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-lg">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center">
+                    <a href="index.html" class="flex items-center space-x-2">
+                        <i data-lucide="shield-check" class="w-8 h-8 text-blue-600"></i>
+                        <span class="text-xl font-bold text-gray-900">Election Monitor</span>
+                    </a>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <a href="home.html" class="text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium">
+                        <i data-lucide="home" class="w-4 h-4 inline mr-1"></i>
+                        Dashboard
+                    </a>
+                    <button id="logoutBtn" class="text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium">
+                        <i data-lucide="log-out" class="w-4 h-4 inline mr-1"></i>
+                        Logout
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="max-w-4xl mx-auto py-8 px-4 sm:px-6 lg:px-8">
+        <!-- Header -->
+        <div class="mb-8">
+            <h1 class="text-3xl font-bold text-gray-900 mb-2">Account Management</h1>
+            <p class="text-gray-600">Manage your account information and settings</p>
+        </div>
+
+        <!-- Account Information -->
+        <div class="bg-white rounded-lg shadow-md p-6 mb-6">
+            <div class="flex items-center mb-6">
+                <i data-lucide="user" class="w-6 h-6 text-blue-600 mr-3"></i>
+                <h2 class="text-xl font-semibold text-gray-900">Personal Information</h2>
+            </div>
+            
+            <div id="userInfo" class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <!-- User info will be populated by JavaScript -->
+            </div>
+            
+            <div class="mt-6 flex justify-end">
+                <button id="editProfileBtn" class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors">
+                    <i data-lucide="edit" class="w-4 h-4 inline mr-2"></i>
+                    Edit Profile
+                </button>
+            </div>
+        </div>
+
+        <!-- Security Settings -->
+        <div class="bg-white rounded-lg shadow-md p-6 mb-6">
+            <div class="flex items-center mb-6">
+                <i data-lucide="shield" class="w-6 h-6 text-green-600 mr-3"></i>
+                <h2 class="text-xl font-semibold text-gray-900">Security Settings</h2>
+            </div>
+            
+            <div class="space-y-4">
+                <div class="flex items-center justify-between p-4 border border-gray-200 rounded-lg">
+                    <div>
+                        <h3 class="font-medium text-gray-900">Change Password</h3>
+                        <p class="text-sm text-gray-600">Update your account password</p>
+                    </div>
+                    <button id="changePasswordBtn" class="bg-gray-100 text-gray-700 px-4 py-2 rounded-lg hover:bg-gray-200 transition-colors">
+                        <i data-lucide="key" class="w-4 h-4 inline mr-2"></i>
+                        Change
+                    </button>
+                </div>
+                
+                <div class="flex items-center justify-between p-4 border border-gray-200 rounded-lg">
+                    <div>
+                        <h3 class="font-medium text-gray-900">Two-Factor Authentication</h3>
+                        <p class="text-sm text-gray-600">Add an extra layer of security</p>
+                    </div>
+                    <button class="bg-gray-100 text-gray-700 px-4 py-2 rounded-lg hover:bg-gray-200 transition-colors">
+                        <i data-lucide="smartphone" class="w-4 h-4 inline mr-2"></i>
+                        Enable
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Account Activity -->
+        <div class="bg-white rounded-lg shadow-md p-6">
+            <div class="flex items-center mb-6">
+                <i data-lucide="activity" class="w-6 h-6 text-purple-600 mr-3"></i>
+                <h2 class="text-xl font-semibold text-gray-900">Account Activity</h2>
+            </div>
+            
+            <div id="activityLog" class="space-y-4">
+                <!-- Activity log will be populated by JavaScript -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Edit Profile Modal -->
+    <div id="editProfileModal" class="hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+        <div class="bg-white rounded-lg p-6 w-full max-w-md mx-4">
+            <div class="flex items-center justify-between mb-4">
+                <h3 class="text-lg font-semibold text-gray-900">Edit Profile</h3>
+                <button id="closeEditModal" class="text-gray-400 hover:text-gray-600">
+                    <i data-lucide="x" class="w-5 h-5"></i>
+                </button>
+            </div>
+            
+            <form id="editProfileForm" class="space-y-4">
+                <div>
+                    <label for="editFirstName" class="block text-sm font-medium text-gray-700 mb-1">First Name</label>
+                    <input type="text" id="editFirstName" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                </div>
+                
+                <div>
+                    <label for="editLastName" class="block text-sm font-medium text-gray-700 mb-1">Last Name</label>
+                    <input type="text" id="editLastName" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                </div>
+                
+                <div>
+                    <label for="editPhone" class="block text-sm font-medium text-gray-700 mb-1">Phone Number</label>
+                    <input type="tel" id="editPhone" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                </div>
+                
+                <div>
+                    <label for="editOrganization" class="block text-sm font-medium text-gray-700 mb-1">Organization</label>
+                    <input type="text" id="editOrganization" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                </div>
+                
+                <div class="flex justify-end space-x-3 pt-4">
+                    <button type="button" id="cancelEdit" class="px-4 py-2 text-gray-600 hover:text-gray-800">Cancel</button>
+                    <button type="submit" class="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700">Save Changes</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Change Password Modal -->
+    <div id="changePasswordModal" class="hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+        <div class="bg-white rounded-lg p-6 w-full max-w-md mx-4">
+            <div class="flex items-center justify-between mb-4">
+                <h3 class="text-lg font-semibold text-gray-900">Change Password</h3>
+                <button id="closePasswordModal" class="text-gray-400 hover:text-gray-600">
+                    <i data-lucide="x" class="w-5 h-5"></i>
+                </button>
+            </div>
+            
+            <form id="changePasswordForm" class="space-y-4">
+                <div>
+                    <label for="currentPassword" class="block text-sm font-medium text-gray-700 mb-1">Current Password</label>
+                    <input type="password" id="currentPassword" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                </div>
+                
+                <div>
+                    <label for="newPassword" class="block text-sm font-medium text-gray-700 mb-1">New Password</label>
+                    <input type="password" id="newPassword" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                </div>
+                
+                <div>
+                    <label for="confirmNewPassword" class="block text-sm font-medium text-gray-700 mb-1">Confirm New Password</label>
+                    <input type="password" id="confirmNewPassword" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                </div>
+                
+                <div class="flex justify-end space-x-3 pt-4">
+                    <button type="button" id="cancelPassword" class="px-4 py-2 text-gray-600 hover:text-gray-800">Cancel</button>
+                    <button type="submit" class="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700">Change Password</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Initialize Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+    <script>
+        // Initialize all icons
+        lucide.createIcons();
+
+        // Check authentication
+        function checkAuth() {
+            const token = localStorage.getItem('authToken');
+            if (!token) {
+                window.location.href = 'login.html';
+                return;
+            }
+            loadUserData();
+        }
+
+        // Load user data
+        async function loadUserData() {
+            try {
+                const token = localStorage.getItem('authToken');
+                const response = await fetch('http://localhost:3000/api/auth/profile', {
+                    headers: {
+                        'Authorization': `Bearer ${token}`
+                    }
+                });
+                
+                if (response.ok) {
+                    const user = await response.json();
+                    displayUserInfo(user);
+                    loadActivityLog();
+                } else {
+                    localStorage.removeItem('authToken');
+                    localStorage.removeItem('user');
+                    window.location.href = 'login.html';
+                }
+            } catch (error) {
+                console.error('Error loading user data:', error);
+            }
+        }
+
+        // Display user information
+        function displayUserInfo(user) {
+            const userInfoDiv = document.getElementById('userInfo');
+            userInfoDiv.innerHTML = `
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Full Name</label>
+                    <p class="text-gray-900">${user.firstName} ${user.lastName}</p>
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Email</label>
+                    <p class="text-gray-900">${user.email}</p>
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Phone</label>
+                    <p class="text-gray-900">${user.phone || 'Not provided'}</p>
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Role</label>
+                    <p class="text-gray-900 capitalize">${user.role}</p>
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Organization</label>
+                    <p class="text-gray-900">${user.organization || 'Not provided'}</p>
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Member Since</label>
+                    <p class="text-gray-900">${new Date(user.createdAt).toLocaleDateString()}</p>
+                </div>
+            `;
+
+            // Populate edit form
+            document.getElementById('editFirstName').value = user.firstName;
+            document.getElementById('editLastName').value = user.lastName;
+            document.getElementById('editPhone').value = user.phone || '';
+            document.getElementById('editOrganization').value = user.organization || '';
+        }
+
+        // Load activity log
+        async function loadActivityLog() {
+            try {
+                const token = localStorage.getItem('authToken');
+                const response = await fetch('http://localhost:3000/api/auth/activity', {
+                    headers: {
+                        'Authorization': `Bearer ${token}`
+                    }
+                });
+                
+                if (response.ok) {
+                    const activities = await response.json();
+                    displayActivityLog(activities);
+                }
+            } catch (error) {
+                console.error('Error loading activity log:', error);
+            }
+        }
+
+        // Display activity log
+        function displayActivityLog(activities) {
+            const activityLogDiv = document.getElementById('activityLog');
+            
+            if (activities.length === 0) {
+                activityLogDiv.innerHTML = '<p class="text-gray-500 text-center py-4">No recent activity</p>';
+                return;
+            }
+
+            activityLogDiv.innerHTML = activities.map(activity => `
+                <div class="flex items-center space-x-3 p-3 border border-gray-200 rounded-lg">
+                    <div class="flex-shrink-0">
+                        <i data-lucide="${getActivityIcon(activity.type)}" class="w-5 h-5 text-blue-600"></i>
+                    </div>
+                    <div class="flex-1">
+                        <p class="text-sm font-medium text-gray-900">${activity.description}</p>
+                        <p class="text-xs text-gray-500">${new Date(activity.timestamp).toLocaleString()}</p>
+                    </div>
+                </div>
+            `).join('');
+            
+            lucide.createIcons();
+        }
+
+        function getActivityIcon(type) {
+            const icons = {
+                'login': 'log-in',
+                'logout': 'log-out',
+                'profile_update': 'edit',
+                'password_change': 'key',
+                'default': 'activity'
+            };
+            return icons[type] || icons.default;
+        }
+
+        // Modal controls
+        document.getElementById('editProfileBtn').addEventListener('click', () => {
+            document.getElementById('editProfileModal').classList.remove('hidden');
+        });
+
+        document.getElementById('closeEditModal').addEventListener('click', () => {
+            document.getElementById('editProfileModal').classList.add('hidden');
+        });
+
+        document.getElementById('cancelEdit').addEventListener('click', () => {
+            document.getElementById('editProfileModal').classList.add('hidden');
+        });
+
+        document.getElementById('changePasswordBtn').addEventListener('click', () => {
+            document.getElementById('changePasswordModal').classList.remove('hidden');
+        });
+
+        document.getElementById('closePasswordModal').addEventListener('click', () => {
+            document.getElementById('changePasswordModal').classList.add('hidden');
+        });
+
+        document.getElementById('cancelPassword').addEventListener('click', () => {
+            document.getElementById('changePasswordModal').classList.add('hidden');
+        });
+
+        // Edit profile form submission
+        document.getElementById('editProfileForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            const formData = {
+                firstName: document.getElementById('editFirstName').value,
+                lastName: document.getElementById('editLastName').value,
+                phone: document.getElementById('editPhone').value,
+                organization: document.getElementById('editOrganization').value
+            };
+
+            try {
+                const token = localStorage.getItem('authToken');
+                const response = await fetch('http://localhost:3000/api/auth/profile', {
+                    method: 'PUT',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': `Bearer ${token}`
+                    },
+                    body: JSON.stringify(formData)
+                });
+
+                if (response.ok) {
+                    document.getElementById('editProfileModal').classList.add('hidden');
+                    loadUserData(); // Refresh user data
+                    alert('Profile updated successfully!');
+                } else {
+                    const error = await response.json();
+                    alert(error.message || 'Failed to update profile');
+                }
+            } catch (error) {
+                console.error('Error updating profile:', error);
+                alert('Network error. Please try again.');
+            }
+        });
+
+        // Change password form submission
+        document.getElementById('changePasswordForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            const currentPassword = document.getElementById('currentPassword').value;
+            const newPassword = document.getElementById('newPassword').value;
+            const confirmNewPassword = document.getElementById('confirmNewPassword').value;
+
+            if (newPassword !== confirmNewPassword) {
+                alert('New passwords do not match');
+                return;
+            }
+
+            if (newPassword.length < 8) {
+                alert('New password must be at least 8 characters long');
+                return;
+            }
+
+            try {
+                const token = localStorage.getItem('authToken');
+                const response = await fetch('http://localhost:3000/api/auth/change-password', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': `Bearer ${token}`
+                    },
+                    body: JSON.stringify({
+                        currentPassword,
+                        newPassword
+                    })
+                });
+
+                if (response.ok) {
+                    document.getElementById('changePasswordModal').classList.add('hidden');
+                    document.getElementById('changePasswordForm').reset();
+                    alert('Password changed successfully!');
+                } else {
+                    const error = await response.json();
+                    alert(error.message || 'Failed to change password');
+                }
+            } catch (error) {
+                console.error('Error changing password:', error);
+                alert('Network error. Please try again.');
+            }
+        });
+
+        // Logout functionality
+        document.getElementById('logoutBtn').addEventListener('click', () => {
+            localStorage.removeItem('authToken');
+            localStorage.removeItem('user');
+            window.location.href = 'login.html';
+        });
+
+        // Initialize page
+        checkAuth();
+    </script>
+</body>
+</html>

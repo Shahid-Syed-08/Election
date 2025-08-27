@@ -1,0 +1,200 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Report Incident - Election Monitoring System</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/lucide-static@0.263.1/font/lucide.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="bg-gradient-to-br from-blue-50 to-gray-100 min-h-screen">
+    <!-- Navigation Header -->
+    <header class="bg-white shadow-lg border-b-4 border-orange-500">
+        <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between py-4">
+                <div class="flex items-center space-x-4">
+                    <a href="home.html" class="flex items-center space-x-4">
+                        <div class="w-12 h-12 bg-gradient-to-r from-orange-500 via-white to-green-500 rounded-full flex items-center justify-center shadow-lg">
+                            <i data-lucide="vote" class="w-8 h-8 text-blue-600"></i>
+                        </div>
+                        <div>
+                            <h1 class="text-2xl font-bold text-gray-900">Election Monitoring System</h1>
+                            <p class="text-sm text-gray-600">भारतीय निर्वाचन आयोग</p>
+                        </div>
+                    </a>
+                </div>
+                <button onclick="window.history.back()" class="bg-gray-500 hover:bg-gray-600 text-white px-4 py-2 rounded-lg">
+                    <i data-lucide="arrow-left" class="w-4 h-4 mr-2"></i>Back
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main class="flex-1 py-12">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <!-- Header -->
+            <div class="text-center mb-12">
+                <div class="w-16 h-16 mx-auto mb-4 bg-gradient-to-r from-red-500 to-orange-500 rounded-full flex items-center justify-center">
+                    <i data-lucide="alert-triangle" class="w-8 h-8 text-white"></i>
+                </div>
+                <h1 class="text-3xl font-bold text-gray-900 mb-4">Report Election Incident</h1>
+                <p class="text-xl text-gray-600">Report any issues or irregularities observed during the election process</p>
+            </div>
+
+            <!-- Incident Report Form -->
+            <div class="bg-white rounded-xl p-8 shadow-lg">
+                <form id="incidentForm" class="space-y-6">
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Incident Type *</label>
+                            <select name="incidentType" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500" required>
+                                <option value="">Select Incident Type</option>
+                                <option value="Security Breach">Security Breach</option>
+                                <option value="EVM Malfunction">EVM Malfunction</option>
+                                <option value="Voter Intimidation">Voter Intimidation</option>
+                                <option value="Booth Capturing">Booth Capturing</option>
+                                <option value="Infrastructure Issue">Infrastructure Issue</option>
+                                <option value="Other">Other</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Priority Level *</label>
+                            <select name="priority" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500" required>
+                                <option value="Low">Low - Minor issue</option>
+                                <option value="Medium">Medium - Needs attention</option>
+                                <option value="High">High - Urgent action required</option>
+                                <option value="Critical">Critical - Immediate intervention</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">State/UT *</label>
+                            <select name="state" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500" required>
+                                <option value="">Select State/UT</option>
+                                <option value="Andhra Pradesh">Andhra Pradesh</option>
+                                <option value="Arunachal Pradesh">Arunachal Pradesh</option>
+                                <option value="Assam">Assam</option>
+                                <option value="Bihar">Bihar</option>
+                                <option value="Chhattisgarh">Chhattisgarh</option>
+                                <option value="Goa">Goa</option>
+                                <option value="Gujarat">Gujarat</option>
+                                <option value="Haryana">Haryana</option>
+                                <option value="Himachal Pradesh">Himachal Pradesh</option>
+                                <option value="Jharkhand">Jharkhand</option>
+                                <option value="Karnataka">Karnataka</option>
+                                <option value="Kerala">Kerala</option>
+                                <option value="Madhya Pradesh">Madhya Pradesh</option>
+                                <option value="Maharashtra">Maharashtra</option>
+                                <option value="Manipur">Manipur</option>
+                                <option value="Meghalaya">Meghalaya</option>
+                                <option value="Mizoram">Mizoram</option>
+                                <option value="Nagaland">Nagaland</option>
+                                <option value="Odisha">Odisha</option>
+                                <option value="Punjab">Punjab</option>
+                                <option value="Rajasthan">Rajasthan</option>
+                                <option value="Sikkim">Sikkim</option>
+                                <option value="Tamil Nadu">Tamil Nadu</option>
+                                <option value="Telangana">Telangana</option>
+                                <option value="Tripura">Tripura</option>
+                                <option value="Uttar Pradesh">Uttar Pradesh</option>
+                                <option value="Uttarakhand">Uttarakhand</option>
+                                <option value="West Bengal">West Bengal</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">District</label>
+                            <input type="text" name="district" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500" placeholder="Enter district name">
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Polling Station ID</label>
+                        <input type="text" name="pollingStation" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500" placeholder="PS-XXXX">
+                    </div>
+
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Description *</label>
+                        <textarea name="description" rows="5" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500" placeholder="Provide detailed description of the incident..." required></textarea>
+                    </div>
+
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Upload Evidence (Optional)</label>
+                        <input type="file" name="evidence" class="w-full p-3 border border-gray-300 rounded-lg" accept="image/*,video/*,.pdf">
+                        <p class="text-xs text-gray-500 mt-1">Maximum file size: 10MB. Supported formats: JPG, PNG, PDF, MP4</p>
+                    </div>
+
+                    <div class="flex gap-4">
+                        <button type="button" onclick="window.history.back()" class="flex-1 bg-gray-500 hover:bg-gray-600 text-white p-3 rounded-lg font-semibold">
+                            Cancel
+                        </button>
+                        <button type="submit" class="flex-1 bg-red-600 hover:bg-red-700 text-white p-3 rounded-lg font-semibold">
+                            <i data-lucide="alert-triangle" class="w-5 h-5 mr-2 inline"></i>
+                            Submit Report
+                        </button>
+                    </div>
+                </form>
+            </div>
+
+            <!-- Emergency Contact Info -->
+            <div class="bg-red-50 border border-red-200 rounded-xl p-6 mt-8">
+                <h3 class="text-lg font-semibold text-red-800 mb-4 flex items-center">
+                    <i data-lucide="phone" class="w-5 h-5 mr-2"></i>
+                    Emergency Contacts
+                </h3>
+                <div class="grid md:grid-cols-2 gap-4 text-sm">
+                    <div>
+                        <span class="font-semibold">Police Control Room:</span> 100
+                    </div>
+                    <div>
+                        <span class="font-semibold">Election Helpline:</span> 1950
+                    </div>
+                    <div>
+                        <span class="font-semibold">National Emergency:</span> 112
+                    </div>
+                    <div>
+                        <span class="font-semibold">Women Helpline:</span> 1091
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12 mt-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <p>&copy; 2024 Election Commission of India. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Initialize Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+    <script>
+        // Initialize all icons
+        lucide.createIcons();
+    </script>
+
+    <script src="script.js"></script>
+    <script>
+        // Form submission handling
+        document.getElementById('incidentForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Simulate form submission
+            const formData = new FormData(this);
+            const incidentData = Object.fromEntries(formData);
+            
+            // Show success message
+            alert('Incident report submitted successfully! Your report has been logged and will be reviewed by our team.');
+            
+            // Redirect back to incidents page
+            window.location.href = 'incidents.html';
+        });
+    </script>
+</body>
+</html>
+ 

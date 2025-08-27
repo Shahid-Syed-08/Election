@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Management - Election Monitoring System</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://unpkg.com/lucide@latest/dist/umd/lucide.css" rel="stylesheet">
+    <style>
+        .gradient-bg {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        .glass-effect {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+    </style>
+</head>
+<body class="gradient-bg min-h-screen">
+    <header class="bg-white shadow-lg border-b-4 border-orange-500">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between py-4">
+                <div class="flex items-center space-x-4">
+                    <div class="w-12 h-12 bg-gradient-to-r from-orange-500 via-white to-green-500 rounded-full flex items-center justify-center shadow-lg">
+                        <i data-lucide="vote" class="w-8 h-8 text-blue-600"></i>
+                    </div>
+                    <div>
+                        <h1 class="text-2xl font-bold text-gray-900">Election Monitoring System</h1>
+                        <p class="text-sm text-gray-600">भारतीय निर्वाचन आयोग</p>
+                    </div>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <a href="home.html" class="text-gray-700 hover:text-blue-600 transition-colors duration-200 font-medium">Dashboard</a>
+                    <button id="logoutBtn" class="bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded-lg transition-all duration-200 font-medium">Logout</button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <nav class="nav-gradient shadow-md">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex space-x-8 overflow-x-auto">
+                <a href="home.html" class="nav-link flex items-center space-x-2 py-4 px-3 text-sm font-medium text-blue-100 border-b-2 border-transparent hover:text-white hover:border-blue-300 whitespace-nowrap">
+                    <i data-lucide="home" class="w-4 h-4"></i>
+                    <span>Home</span>
+                </a>
+                <a href="security.html" class="nav-link flex items-center space-x-2 py-4 px-3 text-sm font-medium text-blue-100 border-b-2 border-transparent hover:text-white hover:border-blue-300 whitespace-nowrap">
+                    <i data-lucide="shield-check" class="w-4 h-4"></i>
+                    <span>Security Protocols</span>
+                </a>
+                <a href="monitoring.html" class="nav-link flex items-center space-x-2 py-4 px-3 text-sm font-medium text-blue-100 border-b-2 border-transparent hover:text-white hover:border-blue-300 whitespace-nowrap">
+                    <i data-lucide="activity" class="w-4 h-4"></i>
+                    <span>Real-time Monitoring</span>
+                </a>
+                <a href="observers.html" class="nav-link flex items-center space-x-2 py-4 px-3 text-sm font-medium text-blue-100 border-b-2 border-transparent hover:text-white hover:border-blue-300 whitespace-nowrap">
+                    <i data-lucide="users" class="w-4 h-4"></i>
+                    <span>Observer Networks</span>
+                </a>
+                <a href="analytics.html" class="nav-link flex items-center space-x-2 py-4 px-3 text-sm font-medium text-blue-100 border-b-2 border-transparent hover:text-white hover:border-blue-300 whitespace-nowrap">
+                    <i data-lucide="bar-chart-3" class="w-4 h-4"></i>
+                    <span>Data Analytics</span>
+                </a>
+                <a href="incidents.html" class="nav-link flex items-center space-x-2 py-4 px-3 text-sm font-medium text-blue-100 border-b-2 border-transparent hover:text-white hover:border-blue-300 whitespace-nowrap">
+                    <i data-lucide="alert-triangle" class="w-4 h-4"></i>
+                    <span>Incidents</span>
+                </a>
+                <a href="user-management.html" class="nav-link flex items-center space-x-2 py-4 px-3 text-sm font-medium text-white border-b-2 border-orange-400 whitespace-nowrap">
+                    <i data-lucide="users" class="w-4 h-4"></i>
+                    <span>User Management</span>
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="flex-1 py-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="mb-8">
+                <h2 class="text-3xl font-bold text-white mb-4">User Management</h2>
+                <p class="text-white text-opacity-80">Manage user accounts and permissions</p>
+            </div>
+
+            <!-- Stats Cards -->
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
+                <div class="glass-effect rounded-xl p-6">
+                    <div class="flex items-center">
+                        <div class="p-3 rounded-full bg-blue-500 bg-opacity-20">
+                            <i data-lucide="users" class="w-6 h-6 text-white"></i>
+                        </div>
+                        <div class="ml-4">
+                            <p class="text-white text-opacity-60 text-sm">Total Users</p>
+                            <p class="text-white text-2xl font-bold" id="totalUsers">-</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="glass-effect rounded-xl p-6">
+                    <div class="flex items-center">
+                        <div class="p-3 rounded-full bg-green-500 bg-opacity-20">
+                            <i data-lucide="user-check" class="w-6 h-6 text-white"></i>
+                        </div>
+                        <div class="ml-4">
+                            <p class="text-white text-opacity-60 text-sm">Active Users</p>
+                            <p class="text-white text-2xl font-bold" id="activeUsers">-</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="glass-effect rounded-xl p-6">
+                    <div class="flex items-center">
+                        <div class="p-3 rounded-full bg-yellow-500 bg-opacity-20">
+                            <i data-lucide="clock" class="w-6 h-6 text-white"></i>
+                        </div>
+                        <div class="ml-4">
+                            <p class="text-white text-opacity-60 text-sm">Recent Logins</p>
+                            <p class="text-white text-2xl font-bold" id="recentLogins">-</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="glass-effect rounded-xl p-6">
+                    <div class="flex items-center">
+                        <div class="p-3 rounded-full bg-purple-500 bg-opacity-20">
+                            <i data-lucide="shield" class="w-6 h-6 text-white"></i>
+                        </div>
+                        <div class="ml-4">
+                            <p class="text-white text-opacity-60 text-sm">Admins</p>
+                            <p class="text-white text-2xl font-bold" id="adminUsers">-</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- User Table -->
+            <div class="glass-effect rounded-xl p-6">
+                <div class="flex justify-between items-center mb-6">
+                    <h3 class="text-xl font-semibold text-white">User Accounts</h3>
+                    <div class="flex space-x-4">
+                        <select id="roleFilter" class="bg-white bg-opacity-20 border border-white border-opacity-30 rounded-lg text-white px-4 py-2 focus:outline-none focus:ring-2 focus:ring-white focus:ring-opacity-50">
+                            <option value="">All Roles</option>
+                            <option value="admin">Administrator</option>
+                            <option value="observer">Election Observer</option>
+                            <option value="monitor">Monitor</option>
+                            <option value="coordinator">Coordinator</option>
+                        </select>
+                        <input type="text" id="searchInput" placeholder="Search users..." 
+                               class="bg-white bg-opacity-20 border border-white border-opacity-30 rounded-lg text-white placeholder-white placeholder-opacity-60 px-4 py-2 focus:outline-none focus:ring-2 focus:ring-white focus:ring-opacity-50">
+                    </div>
+                </div>
+
+                <div class="overflow-x-auto">
+                    <table class="w-full text-white">
+                        <thead>
+                            <tr class="border-b border-white border-opacity-20">
+                                <th class="text-left py-3 px-4">Name</th>
+                                <th class="text-left py-3 px-4">Email</th>
+                                <th class="text-left py-3 px-4">Role</th>
+                                <th class="text-left py-3 px-4">Phone</th>
+                                <th class="text-left py-3 px-4">Status</th>
+                                <th class="text-left py-3 px-4">Last Login</th>
+                                <th class="text-left py-3 px-4">Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="userTableBody">
+                            <!-- User rows will be populated here -->
+                        </tbody>
+                    </table>
+                </div>
+
+                <div id="loadingMessage" class="text-center py-8 text-white text-opacity-80">
+                    <i data-lucide="loader-2" class="w-8 h-8 animate-spin mx-auto mb-4"></i>
+                    Loading users...
+                </div>
+
+                <div id="noUsersMessage" class="text-center py-8 text-white text-opacity-80 hidden">
+                    <i data-lucide="users" class="w-12 h-12 mx-auto mb-4 text-opacity-60"></i>
+                    <p>No users found</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Initialize Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+    <script>
+        // Initialize all icons
+        lucide.createIcons();
+
+        // Check authentication
+        function checkAuth() {
+            const token = localStorage.getItem('token');
+            const user = JSON.parse(localStorage.getItem('user') || '{}');
+            
+            if (!token || user.role !== 'admin') {
+                alert('Access denied. Admin privileges required.');
+                window.location.href = 'login.html';
+                return false;
+            }
+            return true;
+        }
+
+        // Load user statistics
+        async function loadUserStats() {
+            try {
+                const response = await fetch('http://localhost:3000/api/auth/stats', {
+                    headers: {
+                        'Authorization': `Bearer ${localStorage.getItem('token')}`
+                    }
+                });
+
+                if (response.ok) {
+                    const stats = await response.json();
+                    document.getElementById('totalUsers').textContent = stats.total;
+                    document.getElementById('activeUsers').textContent = stats.active;
+                    document.getElementById('recentLogins').textContent = stats.recentLogins;
+                    document.getElementById('adminUsers').textContent = stats.byRole.admin || 0;
+                }
+            } catch (error) {
+                console.error('Error loading stats:', error);
+            }
+        }
+
+        // Load users
+        async function loadUsers() {
+            try {
+                const response = await fetch('http://localhost:3000/api/auth/users', {
+                    headers: {
+                        'Authorization': `Bearer ${localStorage.getItem('token')}`
+                    }
+                });
+
+                if (response.ok) {
+                    const users = await response.json();
+                    displayUsers(users);
+                } else {
+                    throw new Error('Failed to load users');
+                }
+            } catch (error) {
+                console.error('Error loading users:', error);
+                document.getElementById('loadingMessage').classList.add('hidden');
+                document.getElementById('noUsersMessage').classList.remove('hidden');
+            }
+        }
+
+        // Display users in table
+        function displayUsers(users) {
+            const tbody = document.getElementById('userTableBody');
+            const loadingMessage = document.getElementById('loadingMessage');
+            const noUsersMessage = document.getElementById('noUsersMessage');
+
+            loadingMessage.classList.add('hidden');
+
+            if (users.length === 0) {
+                noUsersMessage.classList.remove('hidden');
+                return;
+            }
+
+            noUsersMessage.classList.add('hidden');
+            tbody.innerHTML = '';
+
+            users.forEach(user => {
+                const row = document.createElement('tr');
+                row.className = 'border-b border-white border-opacity-10 hover:bg-white hover:bg-opacity-5';
+                
+                const lastLogin = user.lastLogin ? new Date(user.lastLogin).toLocaleDateString() : 'Never';
+                const statusClass = user.isActive ? 'text-green-400' : 'text-red-400';
+                const statusText = user.isActive ? 'Active' : 'Inactive';
+
+                row.innerHTML = `
+                    <td class="py-3 px-4">
+                        <div>
+                            <div class="font-medium">${user.firstName} ${user.lastName}</div>
+                            <div class="text-sm text-white text-opacity-60">ID: ${user.id}</div>
+                        </div>
+                    </td>
+                    <td class="py-3 px-4">${user.email}</td>
+                    <td class="py-3 px-4">
+                        <span class="px-2 py-1 rounded-full text-xs font-medium bg-white bg-opacity-20">
+                            ${user.role}
+                        </span>
+                    </td>
+                    <td class="py-3 px-4">${user.phone || '-'}</td>
+                    <td class="py-3 px-4">
+                        <span class="${statusClass}">${statusText}</span>
+                    </td>
+                    <td class="py-3 px-4">${lastLogin}</td>
+                    <td class="py-3 px-4">
+                        <div class="flex space-x-2">
+                            <button onclick="toggleUserStatus(${user.id}, ${user.isActive})" 
+                                    class="text-sm px-3 py-1 rounded ${user.isActive ? 'bg-red-500 hover:bg-red-600' : 'bg-green-500 hover:bg-green-600'} text-white transition-colors">
+                                ${user.isActive ? 'Deactivate' : 'Activate'}
+                            </button>
+                            <button onclick="viewUserDetails(${user.id})" 
+                                    class="text-sm px-3 py-1 rounded bg-blue-500 hover:bg-blue-600 text-white transition-colors">
+                                View
+                            </button>
+                        </div>
+                    </td>
+                `;
+                
+                tbody.appendChild(row);
+            });
+        }
+
+        // Toggle user status
+        async function toggleUserStatus(userId, currentStatus) {
+            try {
+                const action = currentStatus ? 'deactivate' : 'activate';
+                const response = await fetch(`http://localhost:3000/api/auth/users/${userId}/${action}`, {
+                    method: 'PUT',
+                    headers: {
+                        'Authorization': `Bearer ${localStorage.getItem('token')}`
+                    }
+                });
+
+                if (response.ok) {
+                    loadUsers();
+                    loadUserStats();
+                } else {
+                    alert('Failed to update user status');
+                }
+            } catch (error) {
+                console.error('Error updating user status:', error);
+                alert('Error updating user status');
+            }
+        }
+
+        // View user details
+        function viewUserDetails(userId) {
+            // This could open a modal or navigate to a detailed view
+            alert(`View details for user ${userId}`);
+        }
+
+        // Search and filter functionality
+        function setupSearchAndFilter() {
+            const searchInput = document.getElementById('searchInput');
+            const roleFilter = document.getElementById('roleFilter');
+
+            searchInput.addEventListener('input', filterUsers);
+            roleFilter.addEventListener('change', filterUsers);
+        }
+
+        function filterUsers() {
+            // This would filter the displayed users based on search and role
+            // For now, just reload all users
+            loadUsers();
+        }
+
+        // Logout functionality
+        document.getElementById('logoutBtn').addEventListener('click', () => {
+            localStorage.removeItem('token');
+            localStorage.removeItem('user');
+            window.location.href = 'login.html';
+        });
+
+        // Initialize page
+        if (checkAuth()) {
+            loadUserStats();
+            loadUsers();
+            setupSearchAndFilter();
+        }
+    </script>
+</body>
+</html>

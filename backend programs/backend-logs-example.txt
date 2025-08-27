@@ -1,0 +1,43 @@
+🚀 Election Monitoring Backend Server running on port 3000
+📊 Health check: http://localhost:3000/api/health
+🌐 Frontend: http://localhost:3000
+⏰ Started at: 2024-12-19T10:30:00.000Z
+
+2024-12-19T10:30:01.123Z - GET /api/health
+2024-12-19T10:30:05.456Z - GET /
+2024-12-19T10:30:10.789Z - POST /api/auth/login
+2024-12-19T10:30:11.012Z - GET /api/dashboard
+2024-12-19T10:30:15.345Z - GET /api/incidents
+2024-12-19T10:30:20.678Z - POST /api/incidents
+2024-12-19T10:30:25.901Z - PUT /api/incidents/1
+
+Database initialized with default data:
+- Created admin user (admin@eci.gov.in)
+- Generated 2,800 polling stations across 28 states
+- Initialized election data for all states
+- Created data directory: ./data
+
+Security middleware active:
+- Helmet.js: Security headers enabled
+- Rate limiting: 100 requests per 15 minutes per IP
+- CORS: Allowed origins: localhost:5000, 127.0.0.1:5000
+
+API Endpoints available:
+- POST /api/auth/login - User authentication
+- GET /api/dashboard - Dashboard statistics (requires auth)
+- GET /api/incidents - List all incidents (requires auth)
+- POST /api/incidents - Create new incident (requires auth)
+- PUT /api/incidents/:id - Update incident (requires auth)
+- GET /api/health - Health check endpoint
+
+Error logs:
+2024-12-19T10:30:30.123Z - Error: Invalid credentials for user: testuser
+2024-12-19T10:30:35.456Z - Error: Token expired for user: admin
+2024-12-19T10:30:40.789Z - Error: Validation Error - Missing required field: description
+
+Performance metrics:
+- Average response time: 45ms
+- Requests per minute: 12
+- Active connections: 3
+- Memory usage: 45.2 MB
+- CPU usage: 2.1%

@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile - Election Monitoring System</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://unpkg.com/lucide@latest/dist/umd/lucide.css" rel="stylesheet">
+    <style>
+        .gradient-bg {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        .glass-effect {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+    </style>
+</head>
+<body class="gradient-bg min-h-screen">
+    <header class="bg-white shadow-lg border-b-4 border-orange-500">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between py-4">
+                <div class="flex items-center space-x-4">
+                    <div class="w-12 h-12 bg-gradient-to-r from-orange-500 via-white to-green-500 rounded-full flex items-center justify-center shadow-lg">
+                        <i data-lucide="vote" class="w-8 h-8 text-blue-600"></i>
+                    </div>
+                    <div>
+                        <h1 class="text-2xl font-bold text-gray-900">Election Monitoring System</h1>
+                        <p class="text-sm text-gray-600">भारतीय निर्वाचन आयोग</p>
+                    </div>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <a href="home.html" class="text-gray-700 hover:text-blue-600 transition-colors duration-200 font-medium">Dashboard</a>
+                    <button id="logoutBtn" class="bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded-lg transition-all duration-200 font-medium">Logout</button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="flex-1 py-8">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="mb-8">
+                <h2 class="text-3xl font-bold text-white mb-4">My Profile</h2>
+                <p class="text-white text-opacity-80">View your account information</p>
+            </div>
+
+            <div class="glass-effect rounded-xl p-8">
+                <div class="text-center mb-8">
+                    <div class="w-24 h-24 bg-white bg-opacity-20 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i data-lucide="user" class="w-12 h-12 text-white"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-white" id="userName">Loading...</h3>
+                    <p class="text-white text-opacity-60" id="userRole">Loading...</p>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="space-y-4">
+                        <div class="flex items-center space-x-3">
+                            <i data-lucide="mail" class="w-5 h-5 text-white text-opacity-60"></i>
+                            <span class="text-white" id="userEmail">Loading...</span>
+                        </div>
+                        <div class="flex items-center space-x-3">
+                            <i data-lucide="phone" class="w-5 h-5 text-white text-opacity-60"></i>
+                            <span class="text-white" id="userPhone">Loading...</span>
+                        </div>
+                    </div>
+                    <div class="space-y-4">
+                        <div class="flex items-center space-x-3">
+                            <i data-lucide="calendar" class="w-5 h-5 text-white text-opacity-60"></i>
+                            <span class="text-white" id="userCreated">Loading...</span>
+                        </div>
+                        <div class="flex items-center space-x-3">
+                            <i data-lucide="clock" class="w-5 h-5 text-white text-opacity-60"></i>
+                            <span class="text-white" id="userLastLogin">Loading...</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Initialize Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+    <script>
+        // Initialize all icons
+        lucide.createIcons();
+
+        // Check authentication
+        function checkAuth() {
+            const token = localStorage.getItem('token');
+            if (!token) {
+                window.location.href = 'login.html';
+                return false;
+            }
+            return true;
+        }
+
+        // Load user profile
+        async function loadProfile() {
+            try {
+                const response = await fetch('http://localhost:3000/api/auth/profile', {
+                    headers: {
+                        'Authorization': `Bearer ${localStorage.getItem('token')}`
+                    }
+                });
+
+                if (response.ok) {
+                    const data = await response.json();
+                    const user = data.user;
+                    
+                    // Update profile display
+                    document.getElementById('userName').textContent = `${user.firstName} ${user.lastName}`;
+                    document.getElementById('userRole').textContent = user.role;
+                    document.getElementById('userEmail').textContent = user.email;
+                    document.getElementById('userPhone').textContent = user.phone || 'Not provided';
+                    document.getElementById('userCreated').textContent = new Date(user.createdAt).toLocaleDateString();
+                    document.getElementById('userLastLogin').textContent = user.lastLogin ? new Date(user.lastLogin).toLocaleDateString() : 'Never';
+                } else {
+                    throw new Error('Failed to load profile');
+                }
+            } catch (error) {
+                console.error('Error loading profile:', error);
+                alert('Failed to load profile');
+            }
+        }
+
+        // Logout functionality
+        document.getElementById('logoutBtn').addEventListener('click', () => {
+            localStorage.removeItem('token');
+            localStorage.removeItem('user');
+            window.location.href = 'login.html';
+        });
+
+        // Initialize page
+        if (checkAuth()) {
+            loadProfile();
+        }
+    </script>
+</body>
+</html>

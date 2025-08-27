@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="theme-color" content="#059669">
+    <title>Security Information - Election Monitoring System</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="mobile-loading.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body class="bg-gradient-to-br from-green-50 to-emerald-100 min-h-screen">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-lg">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="flex justify-between items-center py-4">
+                <div class="flex items-center space-x-4">
+                    <i class="fas fa-shield-alt text-2xl text-green-600"></i>
+                    <span class="text-xl font-bold text-gray-800">Security Center</span>
+                </div>
+                <div class="flex space-x-4">
+                    <a href="index.html" class="text-gray-600 hover:text-green-600 transition-colors">
+                        <i class="fas fa-home mr-2"></i>Home
+                    </a>
+                    <a href="login.html" class="text-gray-600 hover:text-green-600 transition-colors">
+                        <i class="fas fa-sign-in-alt mr-2"></i>Login
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="max-w-6xl mx-auto px-4 py-8">
+        <div class="text-center mb-12">
+            <h1 class="text-4xl font-bold text-gray-900 mb-4">
+                <i class="fas fa-shield-alt text-green-600 mr-3"></i>
+                Security Features & Best Practices
+            </h1>
+            <p class="text-xl text-gray-600">Learn how we protect your data and keep your account secure</p>
+        </div>
+
+        <!-- Security Features Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+            <!-- Password Security -->
+            <div class="bg-white rounded-xl shadow-lg p-6 border-l-4 border-green-500">
+                <div class="flex items-center mb-4">
+                    <i class="fas fa-lock text-2xl text-green-600 mr-3"></i>
+                    <h3 class="text-xl font-semibold text-gray-900">Strong Password Requirements</h3>
+                </div>
+                <ul class="text-gray-600 space-y-2">
+                    <li class="flex items-center">
+                        <i class="fas fa-check text-green-500 mr-2"></i>
+                        Minimum 8 characters
+                    </li>
+                    <li class="flex items-center">
+                        <i class="fas fa-check text-green-500 mr-2"></i>
+                        Uppercase & lowercase letters
+                    </li>
+                    <li class="flex items-center">
+                        <i class="fas fa-check text-green-500 mr-2"></i>
+                        Numbers & special characters
+                    </li>
+                    <li class="flex items-center">
+                        <i class="fas fa-check text-green-500 mr-2"></i>
+                        Real-time strength indicator
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Data Protection -->
+            <div class="bg-white rounded-xl shadow-lg p-6 border-l-4 border-blue-500">
+                <div class="flex items-center mb-4">
+                    <i class="fas fa-database text-2xl text-blue-600 mr-3"></i>
+                    <h3 class="text-xl font-semibold text-gray-900">Data Protection</h3>
+                </div>
+                <ul class="text-gray-600 space-y-2">
+                    <li class="flex items-center">
+                        <i class="fas fa-check text-blue-500 mr-2"></i>
+                        Encrypted password storage
+                    </li>
+                    <li class="flex items-center">
+                        <i class="fas fa-check text-blue-500 mr-2"></i>
+                        Input sanitization
+                    </li>
+                    <li class="flex items-center">
+                        <i class="fas fa-check text-blue-500 mr-2"></i>
+                        SQL injection protection
+                    </li>
+                    <li class="flex items-center">
+                        <i class="fas fa-check text-blue-500 mr-2"></i>
+                        XSS attack prevention
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Rate Limiting -->
+            <div class="bg-white rounded-xl shadow-lg p-6 border-l-4 border-purple-500">
+                <div class="flex items-center mb-4">
+                    <i class="fas fa-tachometer-alt text-2xl text-purple-600 mr-3"></i>
+                    <h3 class="text-xl font-semibold text-gray-900">Rate Limiting</h3>
+                </div>
+                <ul class="text-gray-600 space-y-2">
+                    <li class="flex items-center">
+                        <i class="fas fa-check text-purple-500 mr-2"></i>
+                        API request limits
+                    </li>
+                    <li class="flex items-center">
+                        <i class="fas fa-check text-purple-500 mr-2"></i>
+                        Brute force protection
+                    </li>
+                    <li class="flex items-center">
+                        <i class="fas fa-check text-purple-500 mr-2"></i>
+                        DDoS attack prevention
+                    </li>
+                    <li class="flex items-center">
+                        <i class="fas fa-check text-purple-500 mr-2"></i>
+                        Suspicious activity detection
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Secure Headers -->
+            <div class="bg-white rounded-xl shadow-lg p-6 border-l-4 border-red-500">
+                <div class="flex items-center mb-4">
+                    <i class="fas fa-headers text-2xl text-red-600 mr-3"></i>
+                    <h3 class="text-xl font-semibold text-gray-900">Security Headers</h3>
+                </div>
+                <ul class="text-gray-600 space-y-2">
+                    <li class="flex items-center">
+                        <i class="fas fa-check text-red-500 mr-2"></i>
+                        HSTS (HTTPS enforcement)
+                    </li>
+                    <li class="flex items-center">
+                        <i class="fas fa-check text-red-500 mr-2"></i>
+                        XSS protection
+                    </li>
+                    <li class="flex items-center">
+                        <i class="fas fa-check text-red-500 mr-2"></i>
+                        Content type protection
+                    </li>
+                    <li class="flex items-center">
+                        <i class="fas fa-check text-red-500 mr-2"></i>
+                        Frame options (clickjacking)
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Authentication -->
+            <div class="bg-white rounded-xl shadow-lg p-6 border-l-4 border-yellow-500">
+                <div class="flex items-center mb-4">
+                    <i class="fas fa-user-shield text-2xl text-yellow-600 mr-3"></i>
+                    <h3 class="text-xl font-semibold text-gray-900">Secure Authentication</h3>
+                </div>
+                <ul class="text-gray-600 space-y-2">
+                    <li class="flex items-center">
+                        <i class="fas fa-check text-yellow-500 mr-2"></i>
+                        JWT token-based auth
+                    </li>
+                    <li class="flex items-center">
+                        <i class="fas fa-check text-yellow-500 mr-2"></i>
+                        Session management
+                    </li>
+                    <li class="flex items-center">
+                        <i class="fas fa-check text-yellow-500 mr-2"></i>
+                        Account lockout protection
+                    </li>
+                    <li class="flex items-center">
+                        <i class="fas fa-check text-yellow-500 mr-2"></i>
+                        Secure password reset
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Privacy -->
+            <div class="bg-white rounded-xl shadow-lg p-6 border-l-4 border-indigo-500">
+                <div class="flex items-center mb-4">
+                    <i class="fas fa-user-secret text-2xl text-indigo-600 mr-3"></i>
+                    <h3 class="text-xl font-semibold text-gray-900">Privacy Protection</h3>
+                </div>
+                <ul class="text-gray-600 space-y-2">
+                    <li class="flex items-center">
+                        <i class="fas fa-check text-indigo-500 mr-2"></i>
+                        Data encryption at rest
+                    </li>
+                    <li class="flex items-center">
+                        <i class="fas fa-check text-indigo-500 mr-2"></i>
+                        Secure data transmission
+                    </li>
+                    <li class="flex items-center">
+                        <i class="fas fa-check text-indigo-500 mr-2"></i>
+                        Minimal data collection
+                    </li>
+                    <li class="flex items-center">
+                        <i class="fas fa-check text-indigo-500 mr-2"></i>
+                        User consent management
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Best Practices Section -->
+        <div class="bg-white rounded-xl shadow-lg p-8 mb-12">
+            <h2 class="text-3xl font-bold text-gray-900 mb-6 text-center">
+                <i class="fas fa-lightbulb text-yellow-500 mr-3"></i>
+                Security Best Practices for Users
+            </h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-4 text-green-600">
+                        <i class="fas fa-check-circle mr-2"></i>Do's
+                    </h3>
+                    <ul class="space-y-3 text-gray-700">
+                        <li class="flex items-start">
+                            <i class="fas fa-arrow-right text-green-500 mr-2 mt-1"></i>
+                            <span>Use strong, unique passwords for each account</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-arrow-right text-green-500 mr-2 mt-1"></i>
+                            <span>Enable two-factor authentication when available</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-arrow-right text-green-500 mr-2 mt-1"></i>
+                            <span>Keep your software and browsers updated</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-arrow-right text-green-500 mr-2 mt-1"></i>
+                            <span>Log out when using shared computers</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-arrow-right text-green-500 mr-2 mt-1"></i>
+                            <span>Report suspicious activities immediately</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-4 text-red-600">
+                        <i class="fas fa-times-circle mr-2"></i>Don'ts
+                    </h3>
+                    <ul class="space-y-3 text-gray-700">
+                        <li class="flex items-start">
+                            <i class="fas fa-arrow-right text-red-500 mr-2 mt-1"></i>
+                            <span>Share your login credentials with anyone</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-arrow-right text-red-500 mr-2 mt-1"></i>
+                            <span>Use weak passwords like "123456" or "password"</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-arrow-right text-red-500 mr-2 mt-1"></i>
+                            <span>Click on suspicious links or attachments</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-arrow-right text-red-500 mr-2 mt-1"></i>
+                            <span>Use public Wi-Fi for sensitive transactions</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-arrow-right text-red-500 mr-2 mt-1"></i>
+                            <span>Ignore security warnings from your browser</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Security Tips -->
+        <div class="bg-gradient-to-r from-blue-500 to-purple-600 rounded-xl shadow-lg p-8 text-white">
+            <h2 class="text-3xl font-bold mb-6 text-center">
+                <i class="fas fa-shield-virus mr-3"></i>
+                Quick Security Tips
+            </h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="text-center">
+                    <i class="fas fa-key text-4xl mb-4 text-yellow-300"></i>
+                    <h3 class="text-xl font-semibold mb-2">Password Management</h3>
+                    <p class="text-blue-100">Use a password manager to generate and store strong, unique passwords for all your accounts.</p>
+                </div>
+                
+                <div class="text-center">
+                    <i class="fas fa-mobile-alt text-4xl mb-4 text-green-300"></i>
+                    <h3 class="text-xl font-semibold mb-2">Mobile Security</h3>
+                    <p class="text-blue-100">Keep your mobile devices updated and use biometric authentication when possible.</p>
+                </div>
+                
+                <div class="text-center">
+                    <i class="fas fa-network-wired text-4xl mb-4 text-red-300"></i>
+                    <h3 class="text-xl font-semibold mb-2">Network Security</h3>
+                    <p class="text-blue-100">Use a VPN when connecting to public Wi-Fi networks to encrypt your data transmission.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Contact Security Team -->
+        <div class="bg-white rounded-xl shadow-lg p-8 mt-12 text-center">
+            <h2 class="text-3xl font-bold text-gray-900 mb-4">
+                <i class="fas fa-headset text-blue-600 mr-3"></i>
+                Need Help with Security?
+            </h2>
+            <p class="text-gray-600 mb-6 text-lg">
+                If you notice any suspicious activity or have security concerns, 
+                please contact our security team immediately.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="mailto:security@electionmonitor.gov.in" 
+                   class="bg-red-600 hover:bg-red-700 text-white px-6 py-3 rounded-lg font-semibold transition-colors">
+                    <i class="fas fa-envelope mr-2"></i>
+                    Report Security Issue
+                </a>
+                <a href="contacts.html" 
+                   class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-semibold transition-colors">
+                    <i class="fas fa-phone mr-2"></i>
+                    Contact Support
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-8 mt-16">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            <p class="text-gray-300 mb-4">
+                <i class="fas fa-shield-alt text-green-500 mr-2"></i>
+                Your security is our top priority
+            </p>
+            <p class="text-gray-400">&copy; 2024 Election Monitoring System. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Add smooth scrolling for better UX
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Add loading animation
+        window.addEventListener('load', function() {
+            document.body.classList.add('loaded');
+        });
+    </script>
+</body>
+</html>

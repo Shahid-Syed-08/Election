@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Security Protocols - Election Monitoring System</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/lucide-static@0.263.1/font/lucide.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="bg-gradient-to-br from-blue-50 to-gray-100 min-h-screen">
+    <!-- Navigation Header -->
+    <header class="bg-white shadow-lg border-b-4 border-orange-500">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between py-4">
+                <div class="flex items-center space-x-4">
+                    <a href="home.html" class="flex items-center space-x-4">
+                        <div class="w-12 h-12 bg-gradient-to-r from-orange-500 via-white to-green-500 rounded-full flex items-center justify-center shadow-lg">
+                            <i data-lucide="vote" class="w-8 h-8 text-blue-600"></i>
+                        </div>
+                        <div>
+                            <h1 class="text-2xl font-bold text-gray-900">Election Monitoring System</h1>
+                            <p class="text-sm text-gray-600">भारतीय निर्वाचन आयोग</p>
+                        </div>
+                    </a>
+                </div>
+                <button onclick="window.history.back()" class="bg-gray-500 hover:bg-gray-600 text-white px-4 py-2 rounded-lg">
+                    <i data-lucide="arrow-left" class="w-4 h-4 mr-2"></i>Back to Home
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="flex-1 py-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <!-- Header -->
+            <div class="text-center mb-12">
+                <div class="w-16 h-16 mx-auto mb-4 bg-gradient-to-r from-red-500 to-orange-500 rounded-full flex items-center justify-center">
+                    <i data-lucide="shield-check" class="w-8 h-8 text-white"></i>
+                </div>
+                <h1 class="text-3xl font-bold text-gray-900 mb-4">Security Protocols</h1>
+                <p class="text-xl text-gray-600">Multi-layered security framework ensuring election integrity</p>
+            </div>
+
+            <!-- Security Layers -->
+            <div class="grid md:grid-cols-2 gap-8 mb-12">
+                <!-- Physical Security -->
+                <div class="bg-white rounded-xl p-6 shadow-lg card-hover">
+                    <div class="flex items-center space-x-4 mb-4">
+                        <div class="w-12 h-12 bg-red-500 rounded-lg flex items-center justify-center">
+                            <i data-lucide="lock-keyhole" class="w-6 h-6 text-white"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-semibold">Physical Security</h3>
+                            <p class="text-sm text-gray-600">Multi-tier security at all locations</p>
+                        </div>
+                    </div>
+                    <ul class="space-y-2 text-sm text-gray-700">
+                        <li class="flex items-center">
+                            <i data-lucide="check-circle" class="w-4 h-4 text-green-500 mr-2"></i>
+                            Armed security personnel deployment
+                        </li>
+                        <li class="flex items-center">
+                            <i data-lucide="check-circle" class="w-4 h-4 text-green-500 mr-2"></i>
+                            Biometric access control systems
+                        </li>
+                        <li class="flex items-center">
+                            <i data-lucide="check-circle" class="w-4 h-4 text-green-500 mr-2"></i>
+                            Secure transportation protocols
+                        </li>
+                        <li class="flex items-center">
+                            <i data-lucide="check-circle" class="w-4 h-4 text-green-500 mr-2"></i>
+                            24/7 surveillance monitoring
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Digital Security -->
+                <div class="bg-white rounded-xl p-6 shadow-lg card-hover">
+                    <div class="flex items-center space-x-4 mb-4">
+                        <div class="w-12 h-12 bg-blue-500 rounded-lg flex items-center justify-center">
+                            <i data-lucide="shield-check" class="w-6 h-6 text-white"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-semibold">Digital Security</h3>
+                            <p class="text-sm text-gray-600">Advanced cyber security measures</p>
+                        </div>
+                    </div>
+                    <ul class="space-y-2 text-sm text-gray-700">
+                        <li class="flex items-center">
+                            <i data-lucide="check-circle" class="w-4 h-4 text-green-500 mr-2"></i>
+                            End-to-end encryption
+                        </li>
+                        <li class="flex items-center">
+                            <i data-lucide="check-circle" class="w-4 h-4 text-green-500 mr-2"></i>
+                            Multi-factor authentication
+                        </li>
+                        <li class="flex items-center">
+                            <i data-lucide="check-circle" class="w-4 h-4 text-green-500 mr-2"></i>
+                            Real-time threat monitoring
+                        </li>
+                        <li class="flex items-center">
+                            <i data-lucide="check-circle" class="w-4 h-4 text-green-500 mr-2"></i>
+                            Blockchain data verification
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Emergency Protocols -->
+            <div class="bg-orange-50 rounded-xl p-6 border-l-4 border-orange-500 mb-8">
+                <h3 class="text-xl font-semibold mb-4 flex items-center">
+                    <i data-lucide="alert-triangle" class="w-5 h-5 mr-2 text-orange-600"></i>
+                    Emergency Response Protocols
+                </h3>
+                <div class="grid md:grid-cols-3 gap-6">
+                    <div>
+                        <h4 class="font-semibold text-gray-900 mb-2">Immediate Response</h4>
+                        <ul class="text-sm text-gray-700 space-y-1">
+                            <li>• Incident detection within 30 seconds</li>
+                            <li>• Automatic alert to control room</li>
+                            <li>• Mobile response team dispatch</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 class="font-semibold text-gray-900 mb-2">Escalation Matrix</h4>
+                        <ul class="text-sm text-gray-700 space-y-1">
+                            <li>• Local security team (Level 1)</li>
+                            <li>• District command center (Level 2)</li>
+                            <li>• State control room (Level 3)</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 class="font-semibold text-gray-900 mb-2">Recovery Procedures</h4>
+                        <ul class="text-sm text-gray-700 space-y-1">
+                            <li>• Incident containment and assessment</li>
+                            <li>• Backup system activation</li>
+                            <li>• Service restoration protocols</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Security Status -->
+            <div class="bg-white rounded-xl p-6 shadow-lg">
+                <h3 class="text-xl font-semibold mb-6">Current Security Status</h3>
+                <div class="grid md:grid-cols-4 gap-6">
+                    <div class="text-center p-4 bg-green-100 rounded-lg">
+                        <div class="text-2xl font-bold text-green-600">100%</div>
+                        <div class="text-sm text-green-800">Systems Operational</div>
+                    </div>
+                    <div class="text-center p-4 bg-blue-100 rounded-lg">
+                        <div class="text-2xl font-bold text-blue-600">24/7</div>
+                        <div class="text-sm text-blue-800">Monitoring Active</div>
+                    </div>
+                    <div class="text-center p-4 bg-orange-100 rounded-lg">
+                        <div class="text-2xl font-bold text-orange-600">0</div>
+                        <div class="text-sm text-orange-800">Critical Alerts</div>
+                    </div>
+                    <div class="text-center p-4 bg-purple-100 rounded-lg">
+                        <div class="text-2xl font-bold text-purple-600">99.9%</div>
+                        <div class="text-sm text-purple-800">Uptime</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12 mt-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <p>&copy; 2024 Election Commission of India. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Initialize Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+    <script>
+        // Initialize all icons
+        lucide.createIcons();
+    </script>
+</body>
+</html>

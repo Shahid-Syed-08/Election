@@ -1,0 +1,225 @@
+
+/* Custom Styles for Election Monitoring System */
+.hero-gradient {
+    background: linear-gradient(135deg, #1e40af 0%, #1d4ed8 50%, #2563eb 100%);
+}
+
+.nav-gradient {
+    background: linear-gradient(90deg, #dc2626 0%, #ea580c 50%, #16a34a 100%);
+}
+
+.card-hover {
+    transition: all 0.3s ease;
+}
+
+.card-hover:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+}
+
+.status-badge {
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.7; }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #c1c1c1;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #a8a8a8;
+}
+
+/* Responsive design improvements */
+@media (max-width: 768px) {
+    .nav-link {
+        font-size: 0.875rem;
+        padding: 0.75rem 0.5rem;
+    }
+    
+    .hero-gradient h1 {
+        font-size: 2.25rem;
+    }
+}
+
+/* Print styles */
+@media print {
+    .nav-gradient,
+    .card-hover:hover {
+        box-shadow: none !important;
+    }
+    
+    .bg-gradient-to-br {
+        background: white !important;
+    }
+}
+
+/* Enhanced Mobile Responsiveness */
+@media (max-width: 640px) {
+    .container {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+    
+    .hero-gradient h1 {
+        font-size: 1.875rem;
+        line-height: 2.25rem;
+    }
+    
+    .hero-gradient p {
+        font-size: 1rem;
+        line-height: 1.5rem;
+    }
+    
+    .nav-gradient {
+        padding: 0.5rem 1rem;
+    }
+    
+    .nav-link {
+        font-size: 0.75rem;
+        padding: 0.5rem 0.25rem;
+    }
+    
+    .card {
+        margin: 0.5rem 0;
+        padding: 1rem;
+    }
+    
+    .btn {
+        padding: 0.5rem 1rem;
+        font-size: 0.875rem;
+    }
+}
+
+/* Touch-friendly mobile interactions */
+@media (max-width: 768px) {
+    .btn, .nav-link {
+        min-height: 44px;
+        min-width: 44px;
+    }
+    
+    .card-hover:hover {
+        transform: none;
+    }
+    
+    .card-hover:active {
+        transform: scale(0.98);
+    }
+}
+
+/* Landscape mobile optimization */
+@media (max-width: 768px) and (orientation: landscape) {
+    .hero-gradient {
+        padding: 2rem 0;
+    }
+    
+    .hero-gradient h1 {
+        font-size: 1.5rem;
+    }
+}
+
+/* Mobile-specific improvements */
+@media (max-width: 480px) {
+    .container {
+        padding-left: 0.5rem;
+        padding-right: 0.5rem;
+    }
+    
+    .hero-gradient h1 {
+        font-size: 1.5rem;
+        line-height: 2rem;
+    }
+    
+    .hero-gradient p {
+        font-size: 0.875rem;
+        line-height: 1.25rem;
+    }
+    
+    .nav-gradient {
+        padding: 0.25rem 0.5rem;
+    }
+    
+    .nav-link {
+        font-size: 0.75rem;
+        padding: 0.375rem 0.125rem;
+        min-height: 48px;
+    }
+    
+    .card {
+        margin: 0.25rem 0;
+        padding: 0.75rem;
+    }
+    
+    .btn {
+        padding: 0.75rem 1.5rem;
+        font-size: 0.875rem;
+        min-height: 48px;
+    }
+    
+    /* Form improvements for mobile */
+    input, select, textarea {
+        font-size: 16px !important; /* Prevents zoom on iOS */
+        padding: 0.75rem !important;
+        min-height: 48px !important;
+    }
+    
+    /* Better touch targets */
+    button, a, .nav-link {
+        min-height: 48px !important;
+        min-width: 48px !important;
+    }
+    
+    /* Improved spacing for mobile forms */
+    .space-y-4 > * + * {
+        margin-top: 1rem;
+    }
+    
+    .space-y-6 > * + * {
+        margin-top: 1.5rem;
+    }
+}
+
+/* Touch device optimizations */
+@media (hover: none) and (pointer: coarse) {
+    .card-hover:hover {
+        transform: none;
+    }
+    
+    .card-hover:active {
+        transform: scale(0.98);
+        transition: transform 0.1s ease;
+    }
+    
+    /* Larger touch targets for mobile */
+    .btn, .nav-link, button, a {
+        min-height: 48px;
+        min-width: 48px;
+    }
+    
+    /* Better mobile navigation */
+    .nav-gradient {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+    
+    .nav-link {
+        white-space: nowrap;
+        flex-shrink: 0;
+    }
+}

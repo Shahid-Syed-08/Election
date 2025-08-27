@@ -1,0 +1,31 @@
+[
+  {
+    "id": 1,
+    "username": "admin",
+    "password": "$2a$10$hlhtadQ23Pw5CBa4WL1g0emSFkDUXjLe/hWSux.lgKKjdUfZUVE6e",
+    "email": "admin@eci.gov.in",
+    "firstName": "System",
+    "lastName": "Administrator",
+    "role": "admin",
+    "organization": "Election Commission of India",
+    "phone": "+911234567890",
+    "isActive": true,
+    "createdAt": "2025-08-24T18:08:37.745Z",
+    "lastLogin": null
+  },
+  {
+    "firstName": "Test",
+    "lastName": "User",
+    "username": "testuser",
+    "email": "test@example.com",
+    "role": "observer",
+    "organization": "Test Organization",
+    "phone": "+919876543210",
+    "password": "$2a$12$582YQuW3F61FNb6J/0dc3uk0KC9f4qqVPsJ7MQ5D2/oIDc1vAOM92",
+    "createdAt": "2025-08-24T18:09:28.009Z",
+    "lastLogin": "2025-08-24T18:09:37.229Z",
+    "isActive": true,
+    "id": 2,
+    "updatedAt": "2025-08-24T18:09:37.233Z"
+  }
+]

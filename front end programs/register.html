@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="theme-color" content="#667eea">
+    <title>Register - Election Monitoring System</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://unpkg.com/lucide@latest/dist/umd/lucide.css" rel="stylesheet">
+    <link href="mobile-loading.css" rel="stylesheet">
+    <style>
+        .gradient-bg {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        .glass-effect {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+    </style>
+</head>
+<body class="gradient-bg min-h-screen flex items-center justify-center p-4">
+    <div class="glass-effect rounded-2xl p-4 sm:p-8 w-full max-w-lg">
+        <!-- Header -->
+        <div class="text-center mb-6 sm:mb-8">
+            <div class="flex justify-center mb-3 sm:mb-4">
+                <i data-lucide="user-plus" class="w-10 h-10 sm:w-12 sm:h-12 text-white"></i>
+            </div>
+            <h1 class="text-2xl sm:text-3xl font-bold text-white mb-2">Create Account</h1>
+            <p class="text-gray-200 text-sm sm:text-base">Join the Election Monitoring System</p>
+        </div>
+
+        <!-- Registration Form -->
+        <form id="registerForm" class="space-y-4 sm:space-y-6">
+                         <!-- Personal Information -->
+             <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                 <div>
+                     <label for="firstName" class="block text-sm font-medium text-white mb-2">
+                         <i data-lucide="user" class="w-4 h-4 inline mr-2"></i>
+                         First Name
+                     </label>
+                     <input 
+                         type="text" 
+                         id="firstName" 
+                         name="firstName" 
+                         required
+                         class="w-full px-4 py-3 rounded-lg bg-white/20 border border-white/30 text-white placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-white/50 focus:border-transparent transition-all"
+                         placeholder="Enter first name"
+                     >
+                     <div id="firstNameError" class="text-red-300 text-sm mt-1 hidden"></div>
+                 </div>
+
+                 <div>
+                     <label for="lastName" class="block text-sm font-medium text-white mb-2">
+                         <i data-lucide="user" class="w-4 h-4 inline mr-2"></i>
+                         Last Name
+                     </label>
+                     <input 
+                         type="text" 
+                         id="lastName" 
+                         name="lastName" 
+                         required
+                         class="w-full px-4 py-3 rounded-lg bg-white/20 border border-white/30 text-white placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-white/50 focus:border-transparent transition-all"
+                         placeholder="Enter last name"
+                     >
+                     <div id="lastNameError" class="text-red-300 text-sm mt-1 hidden"></div>
+                 </div>
+             </div>
+
+             <!-- Username -->
+             <div>
+                 <label for="username" class="block text-sm font-medium text-white mb-2">
+                     <i data-lucide="at-sign" class="w-4 h-4 inline mr-2"></i>
+                     Username (Optional)
+                 </label>
+                 <input 
+                     type="text" 
+                     id="username" 
+                     name="username" 
+                     class="w-full px-4 py-3 rounded-lg bg-white/20 border border-white/30 text-white placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-white/50 focus:border-transparent transition-all"
+                     placeholder="Choose a username (or leave blank for auto-generated)"
+                 >
+                 <div id="usernameError" class="text-red-300 text-sm mt-1 hidden"></div>
+                 <p class="text-xs text-gray-300 mt-1">Leave blank to use email prefix as username</p>
+             </div>
+
+            <div>
+                <label for="email" class="block text-sm font-medium text-white mb-2">
+                    <i data-lucide="mail" class="w-4 h-4 inline mr-2"></i>
+                    Email Address
+                </label>
+                <input 
+                    type="email" 
+                    id="email" 
+                    name="email" 
+                    required
+                    class="w-full px-4 py-3 rounded-lg bg-white/20 border border-white/30 text-white placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-white/50 focus:border-transparent transition-all"
+                    placeholder="Enter your email"
+                >
+                <div id="emailError" class="text-red-300 text-sm mt-1 hidden"></div>
+            </div>
+
+            <div>
+                <label for="phone" class="block text-sm font-medium text-white mb-2">
+                    <i data-lucide="phone" class="w-4 h-4 inline mr-2"></i>
+                    Phone Number
+                </label>
+                <input 
+                    type="tel" 
+                    id="phone" 
+                    name="phone" 
+                    required
+                    class="w-full px-4 py-3 rounded-lg bg-white/20 border border-white/30 text-white placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-white/50 focus:border-transparent transition-all"
+                    placeholder="Enter phone number"
+                >
+                <div id="phoneError" class="text-red-300 text-sm mt-1 hidden"></div>
+            </div>
+
+            <div>
+                <label for="role" class="block text-sm font-medium text-white mb-2">
+                    <i data-lucide="briefcase" class="w-4 h-4 inline mr-2"></i>
+                    Role
+                </label>
+                <select 
+                    id="role" 
+                    name="role" 
+                    required
+                    class="w-full px-4 py-3 rounded-lg bg-white/20 border border-white/30 text-white focus:outline-none focus:ring-2 focus:ring-white/50 focus:border-transparent transition-all"
+                >
+                    <option value="" class="text-gray-700">Select your role</option>
+                    <option value="observer" class="text-gray-700">Election Observer</option>
+                    <option value="coordinator" class="text-gray-700">Coordinator</option>
+                    <option value="admin" class="text-gray-700">Administrator</option>
+                    <option value="monitor" class="text-gray-700">Monitor</option>
+                </select>
+                <div id="roleError" class="text-red-300 text-sm mt-1 hidden"></div>
+            </div>
+
+            <div>
+                <label for="organization" class="block text-sm font-medium text-white mb-2">
+                    <i data-lucide="building" class="w-4 h-4 inline mr-2"></i>
+                    Organization
+                </label>
+                <input 
+                    type="text" 
+                    id="organization" 
+                    name="organization" 
+                    required
+                    class="w-full px-4 py-3 rounded-lg bg-white/20 border border-white/30 text-white placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-white/50 focus:border-transparent transition-all"
+                    placeholder="Enter organization name"
+                >
+                <div id="organizationError" class="text-red-300 text-sm mt-1 hidden"></div>
+            </div>
+
+            <!-- Password Section -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div>
+                    <label for="password" class="block text-sm font-medium text-white mb-2">
+                        <i data-lucide="lock" class="w-4 h-4 inline mr-2"></i>
+                        Password
+                    </label>
+                    <div class="relative">
+                        <input 
+                            type="password" 
+                            id="password" 
+                            name="password" 
+                            required
+                            class="w-full px-4 py-3 rounded-lg bg-white/20 border border-white/30 text-white placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-white/50 focus:border-transparent transition-all pr-12"
+                            placeholder="Create password"
+                        >
+                        <button 
+                            type="button" 
+                            id="togglePassword"
+                            class="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-300 hover:text-white transition-colors"
+                        >
+                            <i data-lucide="eye" class="w-5 h-5"></i>
+                        </button>
+                    </div>
+                                         <div id="passwordError" class="text-red-300 text-sm mt-1 hidden"></div>
+                     
+                     <!-- Password Strength Indicator -->
+                     <div class="mt-2">
+                         <div class="flex items-center space-x-2 mb-1">
+                             <span class="text-xs text-gray-300">Password Strength:</span>
+                             <div id="passwordStrength" class="text-xs font-medium"></div>
+                         </div>
+                         <div class="w-full bg-gray-300 rounded-full h-2">
+                             <div id="passwordStrengthBar" class="h-2 rounded-full transition-all duration-300" style="width: 0%"></div>
+                         </div>
+                         <div class="text-xs text-gray-300 mt-1">
+                             <div id="passwordRequirements" class="space-y-1">
+                                 <div class="flex items-center">
+                                     <span id="lengthCheck" class="w-2 h-2 rounded-full bg-gray-400 mr-2"></span>
+                                     <span>At least 8 characters</span>
+                                 </div>
+                                 <div class="flex items-center">
+                                     <span id="uppercaseCheck" class="w-2 h-2 rounded-full bg-gray-400 mr-2"></span>
+                                     <span>One uppercase letter</span>
+                                 </div>
+                                 <div class="flex items-center">
+                                     <span id="lowercaseCheck" class="w-2 h-2 rounded-full bg-gray-400 mr-2"></span>
+                                     <span>One lowercase letter</span>
+                                 </div>
+                                 <div class="flex items-center">
+                                     <span id="numberCheck" class="w-2 h-2 rounded-full bg-gray-400 mr-2"></span>
+                                     <span>One number</span>
+                                 </div>
+                                 <div class="flex items-center">
+                                     <span id="specialCheck" class="w-2 h-2 rounded-full bg-gray-400 mr-2"></span>
+                                     <span>One special character (@$!%*?&)</span>
+                                 </div>
+                             </div>
+                         </div>
+                     </div>
+                 </div>
+
+                <div>
+                    <label for="confirmPassword" class="block text-sm font-medium text-white mb-2">
+                        <i data-lucide="lock" class="w-4 h-4 inline mr-2"></i>
+                        Confirm Password
+                    </label>
+                    <div class="relative">
+                        <input 
+                            type="password" 
+                            id="confirmPassword" 
+                            name="confirmPassword" 
+                            required
+                            class="w-full px-4 py-3 rounded-lg bg-white/20 border border-white/30 text-white placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-white/50 focus:border-transparent transition-all pr-12"
+                            placeholder="Confirm password"
+                        >
+                        <button 
+                            type="button" 
+                            id="toggleConfirmPassword"
+                            class="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-300 hover:text-white transition-colors"
+                        >
+                            <i data-lucide="eye" class="w-5 h-5"></i>
+                        </button>
+                    </div>
+                    <div id="confirmPasswordError" class="text-red-300 text-sm mt-1 hidden"></div>
+                </div>
+            </div>
+
+            <!-- Terms and Conditions -->
+            <div class="flex items-start">
+                <input 
+                    type="checkbox" 
+                    id="agreeTerms" 
+                    required
+                    class="mt-1 rounded border-white/30 bg-white/20 text-blue-600 focus:ring-blue-500"
+                >
+                <label for="agreeTerms" class="ml-2 text-sm text-white">
+                    I agree to the 
+                    <a href="#" class="text-blue-200 hover:text-white underline">Terms of Service</a> 
+                    and 
+                    <a href="#" class="text-blue-200 hover:text-white underline">Privacy Policy</a>
+                </label>
+            </div>
+            <div id="termsError" class="text-red-300 text-sm mt-1 hidden"></div>
+
+            <button 
+                type="submit" 
+                class="w-full bg-white text-purple-600 py-3 px-4 rounded-lg font-semibold hover:bg-gray-100 transition-colors focus:outline-none focus:ring-2 focus:ring-white/50"
+            >
+                <i data-lucide="user-plus" class="w-4 h-4 inline mr-2"></i>
+                Create Account
+            </button>
+        </form>
+
+        <!-- Divider -->
+        <div class="my-6 flex items-center">
+            <div class="flex-1 border-t border-white/30"></div>
+            <span class="px-4 text-sm text-gray-200">or</span>
+            <div class="flex-1 border-t border-white/30"></div>
+        </div>
+
+        <!-- Sign In Link -->
+        <div class="text-center">
+            <p class="text-gray-200">
+                Already have an account? 
+                <a href="login.html" class="text-blue-200 hover:text-white font-semibold transition-colors">Sign in here</a>
+            </p>
+        </div>
+
+        <!-- Loading Spinner -->
+        <div id="loadingSpinner" class="hidden fixed inset-0 bg-black/50 flex items-center justify-center z-50">
+            <div class="bg-white rounded-lg p-6 flex items-center space-x-3">
+                <div class="animate-spin rounded-full h-6 w-6 border-b-2 border-purple-600"></div>
+                <span class="text-gray-700">Creating account...</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Initialize Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+    <script>
+        // Initialize all icons
+        lucide.createIcons();
+
+        // Toggle password visibility
+        function setupPasswordToggle(inputId, buttonId) {
+            document.getElementById(buttonId).addEventListener('click', function() {
+                const passwordInput = document.getElementById(inputId);
+                const icon = this.querySelector('i');
+                
+                if (passwordInput.type === 'password') {
+                    passwordInput.type = 'text';
+                    icon.setAttribute('data-lucide', 'eye-off');
+                } else {
+                    passwordInput.type = 'password';
+                    icon.setAttribute('data-lucide', 'eye');
+                }
+                lucide.createIcons();
+            });
+        }
+
+                 setupPasswordToggle('password', 'togglePassword');
+         setupPasswordToggle('confirmPassword', 'toggleConfirmPassword');
+         
+         // Password strength indicator
+         document.getElementById('password').addEventListener('input', function() {
+             updatePasswordStrength(this.value);
+         });
+
+        // Form validation and submission
+        document.getElementById('registerForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            // Reset error messages
+            document.querySelectorAll('[id$="Error"]').forEach(el => el.classList.add('hidden'));
+            
+                         const formData = {
+                 firstName: document.getElementById('firstName').value.trim(),
+                 lastName: document.getElementById('lastName').value.trim(),
+                 username: document.getElementById('username').value.trim(),
+                 email: document.getElementById('email').value.trim(),
+                 phone: document.getElementById('phone').value.trim(),
+                 role: document.getElementById('role').value,
+                 organization: document.getElementById('organization').value.trim(),
+                 password: document.getElementById('password').value,
+                 confirmPassword: document.getElementById('confirmPassword').value,
+                 agreeTerms: document.getElementById('agreeTerms').checked
+             };
+            
+            // Validation
+            let hasErrors = false;
+            
+            // Required fields
+            if (!formData.firstName) {
+                showError('firstNameError', 'First name is required');
+                hasErrors = true;
+            }
+            
+            if (!formData.lastName) {
+                showError('lastNameError', 'Last name is required');
+                hasErrors = true;
+            }
+            
+            if (!formData.email) {
+                showError('emailError', 'Email is required');
+                hasErrors = true;
+            } else if (!isValidEmail(formData.email)) {
+                showError('emailError', 'Please enter a valid email address');
+                hasErrors = true;
+            }
+            
+            if (!formData.phone) {
+                showError('phoneError', 'Phone number is required');
+                hasErrors = true;
+            } else if (!isValidPhone(formData.phone)) {
+                showError('phoneError', 'Please enter a valid phone number');
+                hasErrors = true;
+            }
+            
+            if (!formData.role) {
+                showError('roleError', 'Please select a role');
+                hasErrors = true;
+            }
+            
+            if (!formData.organization) {
+                showError('organizationError', 'Organization is required');
+                hasErrors = true;
+            }
+            
+                         if (!formData.password) {
+                 showError('passwordError', 'Password is required');
+                 hasErrors = true;
+             } else if (formData.password.length < 8) {
+                 showError('passwordError', 'Password must be at least 8 characters');
+                 hasErrors = true;
+             } else if (!isValidPassword(formData.password)) {
+                 showError('passwordError', 'Password must contain at least one uppercase letter, one lowercase letter, one number, and one special character (@$!%*?&)');
+                 hasErrors = true;
+             }
+            
+            if (!formData.confirmPassword) {
+                showError('confirmPasswordError', 'Please confirm your password');
+                hasErrors = true;
+            } else if (formData.password !== formData.confirmPassword) {
+                showError('confirmPasswordError', 'Passwords do not match');
+                hasErrors = true;
+            }
+            
+            if (!formData.agreeTerms) {
+                showError('termsError', 'You must agree to the terms and conditions');
+                hasErrors = true;
+            }
+            
+            if (hasErrors) return;
+            
+            // Show loading spinner
+            document.getElementById('loadingSpinner').classList.remove('hidden');
+            
+            try {
+                const response = await fetch('http://localhost:3000/api/auth/register', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                                         body: JSON.stringify({
+                         firstName: formData.firstName,
+                         lastName: formData.lastName,
+                         username: formData.username || null,
+                         email: formData.email,
+                         phone: formData.phone,
+                         role: formData.role,
+                         organization: formData.organization,
+                         password: formData.password
+                     })
+                });
+                
+                const data = await response.json();
+                
+                if (response.ok) {
+                    // Store token
+                    localStorage.setItem('authToken', data.token);
+                    localStorage.setItem('user', JSON.stringify(data.user));
+                    
+                    // Redirect to dashboard
+                    window.location.href = 'home.html';
+                } else {
+                    showError('emailError', data.message || 'Registration failed. Please try again.');
+                }
+            } catch (error) {
+                console.error('Registration error:', error);
+                showError('emailError', 'Network error. Please try again.');
+            } finally {
+                document.getElementById('loadingSpinner').classList.add('hidden');
+            }
+        });
+        
+        function showError(elementId, message) {
+            const errorElement = document.getElementById(elementId);
+            errorElement.textContent = message;
+            errorElement.classList.remove('hidden');
+        }
+        
+        function isValidEmail(email) {
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return emailRegex.test(email);
+        }
+        
+        function isValidPhone(phone) {
+            const phoneRegex = /^[\+]?[1-9][\d]{0,15}$/;
+            return phoneRegex.test(phone.replace(/\s/g, ''));
+        }
+        
+                 function isValidPassword(password) {
+             const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]/;
+             return passwordRegex.test(password);
+         }
+         
+         function updatePasswordStrength(password) {
+             let strength = 0;
+             let strengthText = '';
+             let strengthColor = '';
+             
+             // Check requirements
+             const lengthCheck = document.getElementById('lengthCheck');
+             const uppercaseCheck = document.getElementById('uppercaseCheck');
+             const lowercaseCheck = document.getElementById('lowercaseCheck');
+             const numberCheck = document.getElementById('numberCheck');
+             const specialCheck = document.getElementById('specialCheck');
+             
+             // Length check
+             if (password.length >= 8) {
+                 lengthCheck.className = 'w-2 h-2 rounded-full bg-green-500 mr-2';
+                 strength += 20;
+             } else {
+                 lengthCheck.className = 'w-2 h-2 rounded-full bg-gray-400 mr-2';
+             }
+             
+             // Uppercase check
+             if (/[A-Z]/.test(password)) {
+                 uppercaseCheck.className = 'w-2 h-2 rounded-full bg-green-500 mr-2';
+                 strength += 20;
+             } else {
+                 uppercaseCheck.className = 'w-2 h-2 rounded-full bg-gray-400 mr-2';
+             }
+             
+             // Lowercase check
+             if (/[a-z]/.test(password)) {
+                 lowercaseCheck.className = 'w-2 h-2 rounded-full bg-green-500 mr-2';
+                 strength += 20;
+             } else {
+                 lowercaseCheck.className = 'w-2 h-2 rounded-full bg-gray-400 mr-2';
+             }
+             
+             // Number check
+             if (/\d/.test(password)) {
+                 numberCheck.className = 'w-2 h-2 rounded-full bg-green-500 mr-2';
+                 strength += 20;
+             } else {
+                 numberCheck.className = 'w-2 h-2 rounded-full bg-gray-400 mr-2';
+             }
+             
+             // Special character check
+             if (/[@$!%*?&]/.test(password)) {
+                 specialCheck.className = 'w-2 h-2 rounded-full bg-green-500 mr-2';
+                 strength += 20;
+             } else {
+                 specialCheck.className = 'w-2 h-2 rounded-full bg-gray-400 mr-2';
+             }
+             
+             // Update strength bar
+             const strengthBar = document.getElementById('passwordStrengthBar');
+             const strengthTextDiv = document.getElementById('passwordStrength');
+             
+             strengthBar.style.width = strength + '%';
+             
+             if (strength <= 20) {
+                 strengthText = 'Very Weak';
+                 strengthColor = 'text-red-500';
+                 strengthBar.className = 'h-2 rounded-full transition-all duration-300 bg-red-500';
+             } else if (strength <= 40) {
+                 strengthText = 'Weak';
+                 strengthColor = 'text-orange-500';
+                 strengthBar.className = 'h-2 rounded-full transition-all duration-300 bg-orange-500';
+             } else if (strength <= 60) {
+                 strengthText = 'Fair';
+                 strengthColor = 'text-yellow-500';
+                 strengthBar.className = 'h-2 rounded-full transition-all duration-300 bg-yellow-500';
+             } else if (strength <= 80) {
+                 strengthText = 'Good';
+                 strengthColor = 'text-blue-500';
+                 strengthBar.className = 'h-2 rounded-full transition-all duration-300 bg-blue-500';
+             } else {
+                 strengthText = 'Strong';
+                 strengthColor = 'text-green-500';
+                 strengthBar.className = 'h-2 rounded-full transition-all duration-300 bg-green-500';
+             }
+             
+             strengthTextDiv.textContent = strengthText;
+             strengthTextDiv.className = `text-xs font-medium ${strengthColor}`;
+         }
+    </script>
+</body>
+</html>

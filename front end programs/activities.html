@@ -1,0 +1,220 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Activities - Election Monitoring System</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/lucide-static@0.263.1/font/lucide.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="bg-gradient-to-br from-blue-50 to-gray-100 min-h-screen">
+    <header class="bg-white shadow-lg border-b-4 border-orange-500">
+        <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between py-4">
+                <div class="flex items-center space-x-4">
+                    <div class="w-12 h-12 bg-gradient-to-r from-orange-500 via-white to-green-500 rounded-full flex items-center justify-center shadow-lg">
+                        <i data-lucide="vote" class="w-8 h-8 text-blue-600"></i>
+                    </div>
+                    <div>
+                        <h1 class="text-2xl font-bold text-gray-900">Election Monitoring System</h1>
+                        <p class="text-sm text-gray-600">भारतीय निर्वाचन आयोग</p>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <nav class="nav-gradient shadow-md">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex space-x-8 overflow-x-auto">
+                <a href="home.html" class="nav-link flex items-center space-x-2 py-4 px-3 text-sm font-medium text-blue-100 border-b-2 border-transparent hover:text-white hover:border-blue-300 whitespace-nowrap">
+                    <i data-lucide="home" class="w-4 h-4"></i>
+                    <span>Home</span>
+                </a>
+                <a href="activities.html" class="nav-link flex items-center space-x-2 py-4 px-3 text-sm font-medium text-white border-b-2 border-orange-400 whitespace-nowrap">
+                    <i data-lucide="clock" class="w-4 h-4"></i>
+                    <span>Election Day Activities</span>
+                </a>
+                <a href="monitoring.html" class="nav-link flex items-center space-x-2 py-4 px-3 text-sm font-medium text-blue-100 border-b-2 border-transparent hover:text-white hover:border-blue-300 whitespace-nowrap">
+                    <i data-lucide="monitor" class="w-4 h-4"></i>
+                    <span>Live Monitoring</span>
+                </a>
+                <a href="security.html" class="nav-link flex items-center space-x-2 py-4 px-3 text-sm font-medium text-blue-100 border-b-2 border-transparent hover:text-white hover:border-blue-300 whitespace-nowrap">
+                    <i data-lucide="shield" class="w-4 h-4"></i>
+                    <span>Security Protocols</span>
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="flex-1 py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <div class="w-16 h-16 mx-auto mb-4 bg-gradient-to-r from-orange-500 to-red-500 rounded-full flex items-center justify-center">
+                    <i data-lucide="clock" class="w-8 h-8 text-white"></i>
+                </div>
+                <h1 class="text-3xl font-bold text-gray-900 mb-4">Election Day Essential Activities</h1>
+                <p class="text-xl text-gray-600">Critical monitoring activities performed throughout election day</p>
+            </div>
+
+            <!-- Activities Grid -->
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Activity 1 -->
+                <div class="bg-white rounded-xl p-6 shadow-lg card-hover">
+                    <div class="flex justify-between items-start mb-4">
+                        <div class="flex items-center space-x-3">
+                            <div class="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center">
+                                <i data-lucide="users" class="w-5 h-5 text-blue-600"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold text-gray-900">Polling Station Setup</h3>
+                                <p class="text-sm text-gray-500">Pre-Poll (5:00-7:00 AM)</p>
+                            </div>
+                        </div>
+                        <span class="bg-red-100 text-red-800 px-2 py-1 rounded-full text-xs">Critical</span>
+                    </div>
+                    <p class="text-gray-600 mb-4 text-sm">
+                        Comprehensive setup and verification of EVM machines, voting compartments, and voter assistance facilities.
+                    </p>
+                    <div class="flex items-center text-sm text-gray-500">
+                        <i data-lucide="users" class="w-4 h-4 mr-2"></i>
+                        <span>Polling Officers</span>
+                    </div>
+                </div>
+
+                <!-- Activity 2 -->
+                <div class="bg-white rounded-xl p-6 shadow-lg card-hover">
+                    <div class="flex justify-between items-start mb-4">
+                        <div class="flex items-center space-x-3">
+                            <div class="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center">
+                                <i data-lucide="shield" class="w-5 h-5 text-blue-600"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold text-gray-909">Security Deployment</h3>
+                                <p class="text-sm text-gray-500">Pre-Poll (5:00-7:00 AM)</p>
+                            </div>
+                        </div>
+                        <span class="bg-red-100 text-red-800 px-2 py-1 rounded-full text-xs">Critical</span>
+                    </div>
+                    <p class="text-gray-600 mb-4 text-sm">
+                        Strategic deployment of security personnel and coordination with local law enforcement for polling station security.
+                    </p>
+                    <div class="flex items-center text-sm text-gray-500">
+                        <i data-lucide="users" class="w-4 h-4 mr-2"></i>
+                        <span>Police Department</span>
+                    </div>
+                </div>
+
+                <!-- Activity 3 -->
+                <div class="bg-white rounded-xl p-6 shadow-lg card-hover">
+                    <div class="flex justify-between items-start mb-4">
+                        <div class="flex items-center space-x-3">
+                            <div class="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center">
+                                <i data-lucide="eye" class="w-5 h-5 text-blue-600"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold text-gray-900">Voter Verification</h3>
+                                <p class="text-sm text-gray-500">Morning (7:00 AM-12:00 PM)</p>
+                            </div>
+                        </div>
+                        <span class="bg-orange-100 text-orange-800 px-2 py-1 rounded-full text-xs">High</span>
+                    </div>
+                    <p class="text-gray-600 mb-4 text-sm">
+                        Systematic verification of voter identity documents and electoral rolls to prevent fraudulent voting activities.
+                    </p>
+                    <div class="flex items-center text-sm text-gray-500">
+                        <i data-lucide="users" class="w-4 h-4 mr-2"></i>
+                        <span>Polling Staff</span>
+                    </div>
+                </div>
+
+                <!-- Activity 4 -->
+                <div class="bg-white rounded-xl p-6 shadow-lg card-hover">
+                    <div class="flex justify-between items-start mb-4">
+                        <div class="flex items-center space-x-3">
+                            <div class="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center">
+                                <i data-lucide="file-text" class="w-5 h-5 text-blue-600"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold text-gray-909">Vote Counting</h3>
+                                <p class="text-sm text-gray-500">Post-Poll (After 7:00 PM)</p>
+                            </div>
+                        </div>
+                        <span class="bg-red-100 text-red-800 px-2 py-1 rounded-full text-xs">Critical</span>
+                    </div>
+                    <p class="text-gray-600 mb-4 text-sm">
+                        Systematic counting of votes with multiple verification layers and observer oversight to ensure accuracy.
+                    </p>
+                    <div class="flex items-center text-sm text-gray-500">
+                        <i data-lucide="users" class="w-4 h-4 mr-2"></i>
+                        <span>Counting Staff</span>
+                    </div>
+                </div>
+
+                <!-- Activity 5 -->
+                <div class="bg-white rounded-xl p-6 shadow-lg card-hover">
+                    <div class="flex justify-between items-start mb-4">
+                        <div class="flex items-center space-x-3">
+                            <div class="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center">
+                                <i data-lucide="map-pin" class="w-5 h-5 text-blue-600"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold text-gray-909">Mobile Patrols</h3>
+                                <p class="text-sm text-gray-500">All Day</p>
+                            </div>
+                        </div>
+                        <span class="bg-yellow-100 text-yellow-800 px-2 py-1 rounded-full text-xs">Medium</span>
+                    </div>
+                    <p class="text-gray-600 mb-4 text-sm">
+                        Continuous mobile patrols to monitor polling stations and respond to any security or logistical issues.
+                    </p>
+                    <div class="flex items-center text-sm text-gray-500">
+                        <i data-lucide="users" class="w-4 h-4 mr-2"></i>
+                        <span>Security Teams</span>
+                    </div>
+                </div>
+
+                <!-- Activity 6 -->
+                <div class="bg-white rounded-xl p-6 shadow-lg card-hover">
+                    <div class="flex justify-between items-start mb-4">
+                        <div class="flex items-center space-x-3">
+                            <div class="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center">
+                                <i data-lucide="check-circle-2" class="w-5 h-5 text-blue-600"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold text-gray-909">Result Declaration</h3>
+                                <p class="text-sm text-gray-500">Post-Poll</p>
+                            </div>
+                        </div>
+                        <span class="bg-red-100 text-red-800 px-2 py-1 rounded-full text-xs">Critical</span>
+                    </div>
+                    <p class="text-gray-600 mb-4 text-sm">
+                        Formal declaration of election results with multiple verification checks and observer certification.
+                    </p>
+                    <div class="flex items-center text-sm text-gray-500">
+                        <i data-lucide="users" class="w-4 h-4 mr-2"></i>
+                        <span>Returning Officer</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="bg-gray-900 text-white py-12 mt-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <p>&copy; 2024 Election Commission of India. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Initialize Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+    <script>
+        // Initialize all icons
+        lucide.createIcons();
+    </script>
+
+    <script src="script.js"></script>
+</body>
+</html>

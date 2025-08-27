@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Election Monitoring System - Home</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/lucide-static@0.263.1/font/lucide.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="bg-gradient-to-br from-blue-50 to-gray-100 min-h-screen">
+    <!-- Navigation Header -->
+    <header class="bg-white shadow-lg border-b-4 border-orange-500">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between py-4">
+                <div class="flex items-center space-x-4">
+                    <div class="w-12 h-12 bg-gradient-to-r from-orange-500 via-white to-green-500 rounded-full flex items-center justify-center shadow-lg">
+                        <i data-lucide="vote" class="w-8 h-8 text-blue-600"></i>
+                    </div>
+                    <div>
+                        <h1 class="text-2xl font-bold text-gray-900">Election Monitoring System</h1>
+                        <p class="text-sm text-gray-600">भारतीय निर्वाचन आयोग</p>
+                    </div>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <span class="text-sm text-gray-600" id="currentTime">--:--:--</span>
+                    <a href="accounts.html" class="text-gray-600 hover:text-blue-600 px-3 py-2 rounded text-sm flex items-center">
+                        <i data-lucide="user" class="w-4 h-4 mr-1"></i>
+                        Account
+                    </a>
+                    <button onclick="openIncidentModal()" class="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded-lg text-sm flex items-center">
+                        <i data-lucide="alert-triangle" class="w-4 h-4 mr-1"></i>
+                        Report Issue
+                    </button>
+                    <button onclick="refreshData()" class="bg-blue-500 hover:bg-blue-600 text-white px-3 py-2 rounded-lg text-sm flex items-center">
+                        <i data-lucide="refresh-cw" class="w-4 h-4"></i>
+                    </button>
+                    <button onclick="logout()" class="bg-gray-500 hover:bg-gray-600 text-white px-3 py-2 rounded text-sm flex items-center">
+                        <i data-lucide="log-out" class="w-4 h-4"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Navigation -->
+    <nav class="nav-gradient shadow-md">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex space-x-8 overflow-x-auto">
+                <a href="home.html" class="nav-link flex items-center space-x-2 py-4 px-3 text-sm font-medium text-white border-b-2 border-orange-400 whitespace-nowrap">
+                    <i data-lucide="home" class="w-4 h-4"></i>
+                    <span>Home</span>
+                </a>
+                <a href="monitoring.html" class="nav-link flex items-center space-x-2 py-4 px-3 text-sm font-medium text-blue-100 border-b-2 border-transparent hover:text-white hover:border-blue-300 whitespace-nowrap">
+                    <i data-lucide="activity" class="w-4 h-4"></i>
+                    <span>Real-time Monitoring</span>
+                </a>
+                <a href="security.html" class="nav-link flex items-center space-x-2 py-4 px-3 text-sm font-medium text-blue-100 border-b-2 border-transparent hover:text-white hover:border-blue-300 whitespace-nowrap">
+                    <i data-lucide="shield-check" class="w-4 h-4"></i>
+                    <span>Security Protocols</span>
+                </a>
+                <a href="observers.html" class="nav-link flex items-center space-x-2 py-4 px-3 text-sm font-medium text-blue-100 border-b-2 border-transparent hover:text-white hover:border-blue-300 whitespace-nowrap">
+                    <i data-lucide="users" class="w-4 h-4"></i>
+                    <span>Observer Networks</span>
+                </a>
+                <a href="analytics.html" class="nav-link flex items-center space-x-2 py-4 px-3 text-sm font-medium text-blue-100 border-b-2 border-transparent hover:text-white hover:border-blue-300 whitespace-nowrap">
+                    <i data-lucide="bar-chart-3" class="w-4 h-4"></i>
+                    <span>Data Analytics</span>
+                </a>
+                <a href="incidents.html" class="nav-link flex items-center space-x-2 py-4 px-3 text-sm font-medium text-blue-100 border-b-2 border-transparent hover:text-white hover:border-blue-300 whitespace-nowrap">
+                    <i data-lucide="alert-triangle" class="w-4 h-4"></i>
+                    <span>Incidents</span>
+                </a>
+                <a href="user-management.html" id="userManagementLink" class="nav-link flex items-center space-x-2 py-4 px-3 text-sm font-medium text-blue-100 border-b-2 border-transparent hover:text-white hover:border-blue-300 whitespace-nowrap hidden">
+                    <i data-lucide="users" class="w-4 h-4"></i>
+                    <span>User Management</span>
+                </a>
+                <a href="profile.html" class="nav-link flex items-center space-x-2 py-4 px-3 text-sm font-medium text-blue-100 border-b-2 border-transparent hover:text-white hover:border-blue-300 whitespace-nowrap">
+                    <i data-lucide="user" class="w-4 h-4"></i>
+                    <span>Profile</span>
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="flex-1 py-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <!-- Hero Section -->
+            <div class="hero-gradient text-white rounded-2xl p-8 mb-8">
+                <div class="text-center">
+                    <h2 class="text-4xl font-bold mb-4">India Election Monitoring Dashboard</h2>
+                    <p class="text-xl text-blue-100">Comprehensive monitoring of the world's largest democratic exercise</p>
+                </div>
+            </div>
+
+            <!-- Four Main Feature Cards -->
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+                <!-- Security Protocols Card -->
+                <div class="bg-white rounded-xl p-6 shadow-lg card-hover cursor-pointer" onclick="navigateTo('security.html')">
+                    <div class="text-center">
+                        <div class="w-16 h-16 mx-auto mb-4 bg-red-100 rounded-full flex items-center justify-center">
+                            <i data-lucide="shield-check" class="w-8 h-8 text-red-600"></i>
+                        </div>
+                        <h3 class="text-lg font-semibold mb-2">Security Protocols</h3>
+                        <p class="text-gray-600 text-sm">Multi-layered security measures ensuring election integrity</p>
+                        <div class="mt-4">
+                            <span class="text-red-600 text-sm font-semibold">Click to explore →</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Real-time Monitoring Card -->
+                <div class="bg-white rounded-xl p-6 shadow-lg card-hover cursor-pointer" onclick="navigateTo('monitoring.html')">
+                    <div class="text-center">
+                        <div class="w-16 h-16 mx-auto mb-4 bg-blue-100 rounded-full flex items-center justify-center">
+                            <i data-lucide="activity" class="w-8 h-8 text-blue-600"></i>
+                        </div>
+                        <h3 class="text-lg font-semibold mb-2">Real-time Monitoring</h3>
+                        <p class="text-gray-600 text-sm">24/7 surveillance of polling stations and counting centers</p>
+                        <div class="mt-4">
+                            <span class="text-blue-600 text-sm font-semibold">Click to explore →</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Observer Networks Card -->
+                <div class="bg-white rounded-xl p-6 shadow-lg card-hover cursor-pointer" onclick="navigateTo('observers.html')">
+                    <div class="text-center">
+                        <div class="w-16 h-16 mx-auto mb-4 bg-green-100 rounded-full flex items-center justify-center">
+                            <i data-lucide="users" class="w-8 h-8 text-green-600"></i>
+                        </div>
+                        <h3 class="text-lg font-semibold mb-2">Observer Networks</h3>
+                        <p class="text-gray-600 text-sm">Trained observers deployed across constituencies</p>
+                        <div class="mt-4">
+                            <span class="text-green-600 text-sm font-semibold">Click to explore →</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Data Analytics Card -->
+                <div class="bg-white rounded-xl p-6 shadow-lg card-hover cursor-pointer" onclick="navigateTo('analytics.html')">
+                    <div class="text-center">
+                        <div class="w-16 h-16 mx-auto mb-4 bg-purple-100 rounded-full flex items-center justify-center">
+                            <i data-lucide="bar-chart-3" class="w-8 h-8 text-purple-600"></i>
+                        </div>
+                        <h3 class="text-lg font-semibold mb-2">Data Analytics</h3>
+                        <p class="text-gray-600 text-sm">Advanced analytics for pattern detection and reporting</p>
+                        <div class="mt-4">
+                            <span class="text-purple-600 text-sm font-semibold">Click to explore →</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Quick Stats -->
+            <div class="grid grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+                <div class="text-center p-6 bg-blue-50 rounded-xl">
+                    <div class="text-3xl font-bold text-blue-600 mb-2">1.05M+</div>
+                    <div class="text-sm text-gray-600">Polling Stations</div>
+                </div>
+                <div class="text-center p-6 bg-green-50 rounded-xl">
+                    <div class="text-3xl font-bold text-green-600 mb-2">950M+</div>
+                    <div class="text-sm text-gray-600">Registered Voters</div>
+                </div>
+                <div class="text-center p-6 bg-orange-50 rounded-xl">
+                    <div class="text-3xl font-bold text-orange-600 mb-2">2,600+</div>
+                    <div class="text-sm text-gray-600">Constituencies</div>
+                </div>
+                <div class="text-center p-6 bg-purple-50 rounded-xl">
+                    <div class="text-3xl font-bold text-purple-600 mb-2">99.9%</div>
+                    <div class="text-sm text-gray-600">System Uptime</div>
+                </div>
+            </div>
+
+            <!-- Live Status Dashboard -->
+            <div class="bg-white rounded-xl shadow-lg p-6 mb-8">
+                <h2 class="text-2xl font-bold text-gray-900 mb-6">Live Election Status</h2>
+                <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <div class="text-center p-4 bg-green-100 rounded-lg">
+                        <div class="text-2xl font-bold text-green-600">72.3%</div>
+                        <div class="text-sm text-green-800">Kerala Turnout</div>
+                    </div>
+                    <div class="text-center p-4 bg-blue-100 rounded-lg">
+                        <div class="text-2xl font-bold text-blue-600">58.2%</div>
+                        <div class="text-sm text-blue-800">Maharashtra Turnout</div>
+                    </div>
+                    <div class="text-center p-4 bg-orange-100 rounded-lg">
+                        <div class="text-2xl font-bold text-orange-600">49.8%</div>
+                        <div class="text-sm text-orange-800">UP Turnout</div>
+                    </div>
+                    <div class="text-center p-4 bg-red-100 rounded-lg">
+                        <div class="text-2xl font-bold text-red-600">187</div>
+                        <div class="text-sm text-red-800">Active Incidents</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12 mt-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <p>&copy; 2024 Election Commission of India. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Initialize Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+    <script>
+        // Initialize all icons
+        lucide.createIcons();
+
+        // Check if user is admin and show user management link
+        function checkUserRole() {
+            const user = JSON.parse(localStorage.getItem('user') || '{}');
+            if (user.role === 'admin') {
+                document.getElementById('userManagementLink').classList.remove('hidden');
+            }
+        }
+
+        // Run on page load
+        checkUserRole();
+    </script>
+
+    <script src="script.js"></script>
+    <script>
+        // Check authentication on page load
+        window.addEventListener('load', function() {
+            const token = localStorage.getItem('authToken') || sessionStorage.getItem('authToken');
+            if (!token) {
+                window.location.href = 'login.html';
+                return;
+            }
+            
+            // Load user profile
+            loadUserProfile();
+        });
+
+        // Load user profile
+        async function loadUserProfile() {
+            try {
+                const token = localStorage.getItem('authToken') || sessionStorage.getItem('authToken');
+                const response = await fetch('http://localhost:3000/api/auth/profile', {
+                    headers: {
+                        'Authorization': `Bearer ${token}`
+                    }
+                });
+                
+                if (response.ok) {
+                    const data = await response.json();
+                    console.log('User profile loaded:', data.user);
+                } else {
+                    // Token might be invalid, redirect to login
+                    logout();
+                }
+            } catch (error) {
+                console.error('Error loading profile:', error);
+                logout();
+            }
+        }
+
+        function navigateTo(page) {
+            window.location.href = page;
+        }
+
+        function openIncidentModal() {
+            window.location.href = 'report-incident.html';
+        }
+
+        function refreshData() {
+            window.location.reload();
+        }
+
+        function logout() {
+            // Clear tokens
+            localStorage.removeItem('authToken');
+            localStorage.removeItem('user');
+            sessionStorage.removeItem('authToken');
+            sessionStorage.removeItem('user');
+            
+            // Redirect to login page
+            window.location.href = 'login.html';
+        }
+
+        // Update clock
+        function updateClock() {
+            const now = new Date();
+            document.getElementById('currentTime').textContent = now.toLocaleString();
+        }
+        setInterval(updateClock, 1000);
+        updateClock();
+    </script>
+</body>
+</html>

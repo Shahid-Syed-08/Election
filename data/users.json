@@ -1,0 +1,14 @@
+[
+  {
+    "id": 1,
+    "username": "admin",
+    "password": "$2a$10$3kxRhDmhey78NDiQUnXgrunGtvsYYWojPIqXXD4rMEdeXrklvOpNO",
+    "email": "admin@eci.gov.in",
+    "role": "admin",
+    "name": "System Administrator",
+    "phone": "+911234567890",
+    "state": "National",
+    "createdAt": "2025-08-24T07:33:01.358Z",
+    "lastLogin": null
+  }
+]

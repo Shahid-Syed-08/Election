@@ -1,0 +1,177 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Incidents - Election Monitoring System</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/lucide-static@0.263.1/font/lucide.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="bg-gradient-to-br from-blue-50 to-gray-100 min-h-screen">
+    <!-- Navigation Header -->
+    <header class="bg-white shadow-lg border-b-4 border-orange-500">
+        <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between py-4">
+                <div class="flex items-center space-x-4">
+                    <div class="w-12 h-12 bg-gradient-to-r from-orange-500 via-white to-green-500 rounded-full flex items-center justify-center shadow-lg">
+                        <i data-lucide="vote" class="w-8 h-8 text-blue-600"></i>
+                    </div>
+                    <div>
+                        <h1 class="text-2xl font-bold text-gray-900">Election Monitoring System</h1>
+                        <p class="text-sm text-gray-600">भारतीय निर्वाचन आयोग</p>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Navigation -->
+    <nav class="nav-gradient shadow-md">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex space-x-8 overflow-x-auto">
+                <a href="home.html" class="nav-link flex items-center space-x-2 py-4 px-3 text-sm font-medium text-blue-100 border-b-2 border-transparent hover:text-white hover:border-blue-300 whitespace-nowrap">
+                    <i data-lucide="home" class="w-4 h-4"></i>
+                    <span>Home</span>
+                </a>
+                <a href="activities.html" class="nav-link flex items-center space-x-2 py-4 px-3 text-sm font-medium text-blue-100 border-b-2 border-transparent hover:text-white hover:border-blue-300 whitespace-nowrap">
+                    <i data-lucide="clock" class="w-4 h-4"></i>
+                    <span>Activities</span>
+                </a>
+                <a href="monitoring.html" class="nav-link flex items-center space-x-2 py-4 px-3 text-sm font-medium text-blue-100 border-b-2 border-transparent hover:text-white hover:border-blue-300 whitespace-nowrap">
+                    <i data-lucide="monitor" class="w-4 h-4"></i>
+                    <span>Monitoring</span>
+                </a>
+                <a href="security.html" class="nav-link flex items-center space-x-2 py-4 px-3 text-sm font-medium text-blue-100 border-b-2 border-transparent hover:text-white hover:border-blue-300 whitespace-nowrap">
+                    <i data-lucide="shield" class="w-4 h-4"></i>
+                    <span>Security</span>
+                </a>
+                <a href="incidents.html" class="nav-link flex items-center space-x-2 py-4 px-3 text-sm font-medium text-white border-b-2 border-orange-400 whitespace-nowrap">
+                    <i data-lucide="alert-triangle" class="w-4 h-4"></i>
+                    <span>Incidents</span>
+                </a>
+                <a href="contacts.html" class="nav-link flex items-center space-x-2 py-4 px-3 text-sm font-medium text-blue-100 border-b-2 border-transparent hover:text-white hover:border-blue-300 whitespace-nowrap">
+                    <i data-lucide="phone" class="w-4 h-4"></i>
+                    <span>Contacts</span>
+                </a>
+                <a href="about.html" class="nav-link flex items-center space-x-2 py-4 px-3 text-sm font-medium text-blue-100 border-b-2 border-transparent hover:text-white hover:border-blue-300 whitespace-nowrap">
+                    <i data-lucide="info" class="w-4 h-4"></i>
+                    <span>About</span>
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="flex-1 py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <!-- Header -->
+            <div class="text-center mb-12">
+                <div class="w-16 h-16 mx-auto mb-4 bg-gradient-to-r from-red-500 to-orange-500 rounded-full flex items-center justify-center">
+                    <i data-lucide="alert-triangle" class="w-8 h-8 text-white"></i>
+                </div>
+                <h1 class="text-3xl font-bold text-gray-900 mb-4">Incident Management</h1>
+                <p class="text-xl text-gray-600">Real-time tracking and management of election-related incidents</p>
+            </div>
+
+            <!-- Incident Statistics -->
+            <div class="grid md:grid-cols-4 gap-6 mb-8">
+                <div class="bg-red-100 rounded-xl p-6 text-center">
+                    <div class="text-3xl font-bold text-red-600 mb-2">18</div>
+                    <div class="text-sm text-red-800">Critical Incidents</div>
+                </div>
+                <div class="bg-orange-100 rounded-xl p-6 text-center">
+                    <div class="text-3xl font-bold text-orange-600 mb-2">45</div>
+                    <div class="text-sm text-orange-800">High Priority</div>
+                </div>
+                <div class="bg-blue-100 rounded-xl p-6 text-center">
+                    <div class="text-3xl font-bold text-blue-600 mb-2">124</div>
+                    <div class="text-sm text-blue-800">Total Incidents</div>
+                </div>
+                <div class="bg-green-100 rounded-xl p-6 text-center">
+                    <div class="text-3xl font-bold text-green-600 mb-2">89%</div>
+                    <div class="text-sm text-green-800">Resolved</div>
+                </div>
+            </div>
+
+            <!-- Incident Reports Table -->
+            <div class="bg-white rounded-xl p-6 shadow-lg mb-8">
+                <h3 class="text-xl font-semibold mb-6">Recent Incident Reports</h3>
+                <div class="overflow-x-auto">
+                    <table class="w-full">
+                        <thead>
+                            <tr class="bg-gray-50">
+                                <th class="px-4 py-2 text-left text-sm font-medium text-gray-700">ID</th>
+                                <th class="px-4 py-2 text-left text-sm font-medium text-gray-700">Type</th>
+                                <th class="px-4 py-2 text-left text-sm font-medium text-gray-700">State</th>
+                                <th class="px-4 py-2 text-left text-sm font-medium text-gray-700">Priority</th>
+                                <th class="px-4 py-2 text-left text-sm font-medium text-gray-700">Status</th>
+                                <th class="px-4 py-2 text-left text-sm font-medium text-gray-700">Time</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-gray-200">
+                            <tr>
+                                <td class="px-4 py-3 text-sm">INC-2024-001</td>
+                                <td class="px-4 py-3 text-sm">EVM Malfunction</td>
+                                <td class="px-4 py-3 text-sm">Maharashtra</td>
+                                <td class="px-4 py-3 text-sm"><span class="bg-red-100 text-red-800 px-2 py-1 rounded-full text-xs">Critical</span></td>
+                                <td class="px-4 py-3 text-sm"><span class="bg-green-100 text-green-800 px-2 py-1 rounded-full text-xs">Resolved</span></td>
+                                <td class="px-4 py-3 text-sm">14:23</td>
+                            </tr>
+                            <tr>
+                                <td class="px-4 py-3 text-sm">INC-2024-002</td>
+                                <td class="px-4 py-3 text-sm">Security Breach</td>
+                                <td class="px-4 py-3 text-sm">Uttar Pradesh</td>
+                                <td class="px-4 py-3 text-sm"><span class="bg-red-100 text-red-800 px-2 py-1 rounded-full text-xs">Critical</span></td>
+                                <td class="px-4 py-3 text-sm"><span class="bg-yellow-100 text-yellow-800 px-2 py-1 rounded-full text-xs">In Progress</span></td>
+                                <td class="px-4 py-3 text-sm">14:45</td>
+                            </tr>
+                            <tr>
+                                <td class="px-4 py-3 text-sm">INC-2024-003</td>
+                                <td class="px-4 py-3 text-sm">Voter Intimidation</td>
+                                <td class="px-4 py-3 text-sm">West Bengal</td>
+                                <td class="px-4 py-3 text-sm"><span class="bg-orange-100 text-orange-800 px-2 py-1 rounded-full text-xs">High</span></td>
+                                <td class="px-4 py-3 text-sm"><span class="bg-green-100 text-green-800 px-2 py-1 rounded-full text-xs">Resolved</span></td>
+                                <td class="px-4 py-3 text-sm">15:12</td>
+                            </tr>
+                            <tr>
+                                <td class="px-4 py-3 text-sm">INC-2024-004</td>
+                                <td class="px-4 py-3 text-sm">Infrastructure Issue</td>
+                                <td class="px-4 py-3 text-sm">Bihar</td>
+                                <td class="px-4 py-3 text-sm"><span class="bg-yellow-100 text-yellow-800 px-2 py-1 rounded-full text-xs">Medium</span></td>
+                                <td class="px-4 py-3 text-sm"><span class="bg-blue-100 text-blue-800 px-2 py-1 rounded-full text-xs">Pending</span></td>
+                                <td class="px-4 py-3 text-sm">15:45</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Report New Incident Button -->
+            <div class="text-center">
+                <button onclick="window.location.href='report-incident.html'" class="bg-red-600 hover:bg-red-700 text-white px-6 py-3 rounded-lg font-semibold">
+                    <i data-lucide="plus" class="w-5 h-5 mr-2 inline"></i>
+                    Report New Incident
+                </button>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12 mt-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <p>&copy; 2024 Election Commission of India. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Initialize Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+    <script>
+        // Initialize all icons
+        lucide.createIcons();
+    </script>
+
+    <script src="script.js"></script>
+</body>
+</html>

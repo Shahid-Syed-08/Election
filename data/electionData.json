@@ -1,0 +1,265 @@
+{
+  "national": {
+    "totalVoters": 103052803,
+    "pollingStations": 916362,
+    "constituencies": 2600,
+    "currentTurnout": 52.642857142857146,
+    "incidentsReported": 724,
+    "incidentsResolved": 506,
+    "lastUpdated": "2025-08-24T07:33:01.365Z"
+  },
+  "states": [
+    {
+      "name": "Andhra Pradesh",
+      "totalVoters": 3817622,
+      "pollingStations": 40795,
+      "currentTurnout": 44,
+      "incidents": 4,
+      "status": "normal",
+      "lastUpdated": "2025-08-24T07:33:01.365Z"
+    },
+    {
+      "name": "Arunachal Pradesh",
+      "totalVoters": 4085671,
+      "pollingStations": 10033,
+      "currentTurnout": 65,
+      "incidents": 43,
+      "status": "critical",
+      "lastUpdated": "2025-08-24T07:33:01.365Z"
+    },
+    {
+      "name": "Assam",
+      "totalVoters": 4972754,
+      "pollingStations": 56365,
+      "currentTurnout": 38,
+      "incidents": 11,
+      "status": "normal",
+      "lastUpdated": "2025-08-24T07:33:01.365Z"
+    },
+    {
+      "name": "Bihar",
+      "totalVoters": 2024016,
+      "pollingStations": 24155,
+      "currentTurnout": 74,
+      "incidents": 20,
+      "status": "critical",
+      "lastUpdated": "2025-08-24T07:33:01.365Z"
+    },
+    {
+      "name": "Chhattisgarh",
+      "totalVoters": 4172787,
+      "pollingStations": 45707,
+      "currentTurnout": 85,
+      "incidents": 48,
+      "status": "critical",
+      "lastUpdated": "2025-08-24T07:33:01.365Z"
+    },
+    {
+      "name": "Goa",
+      "totalVoters": 2459984,
+      "pollingStations": 10996,
+      "currentTurnout": 24,
+      "incidents": 35,
+      "status": "critical",
+      "lastUpdated": "2025-08-24T07:33:01.365Z"
+    },
+    {
+      "name": "Gujarat",
+      "totalVoters": 5396596,
+      "pollingStations": 33982,
+      "currentTurnout": 81,
+      "incidents": 27,
+      "status": "normal",
+      "lastUpdated": "2025-08-24T07:33:01.365Z"
+    },
+    {
+      "name": "Haryana",
+      "totalVoters": 3939119,
+      "pollingStations": 37899,
+      "currentTurnout": 34,
+      "incidents": 11,
+      "status": "alert",
+      "lastUpdated": "2025-08-24T07:33:01.365Z"
+    },
+    {
+      "name": "Himachal Pradesh",
+      "totalVoters": 4232236,
+      "pollingStations": 39936,
+      "currentTurnout": 66,
+      "incidents": 47,
+      "status": "critical",
+      "lastUpdated": "2025-08-24T07:33:01.365Z"
+    },
+    {
+      "name": "Jharkhand",
+      "totalVoters": 2698583,
+      "pollingStations": 43781,
+      "currentTurnout": 60,
+      "incidents": 35,
+      "status": "normal",
+      "lastUpdated": "2025-08-24T07:33:01.365Z"
+    },
+    {
+      "name": "Karnataka",
+      "totalVoters": 4939658,
+      "pollingStations": 28877,
+      "currentTurnout": 53,
+      "incidents": 6,
+      "status": "alert",
+      "lastUpdated": "2025-08-24T07:33:01.365Z"
+    },
+    {
+      "name": "Kerala",
+      "totalVoters": 5932834,
+      "pollingStations": 24602,
+      "currentTurnout": 43,
+      "incidents": 15,
+      "status": "alert",
+      "lastUpdated": "2025-08-24T07:33:01.365Z"
+    },
+    {
+      "name": "Madhya Pradesh",
+      "totalVoters": 1532823,
+      "pollingStations": 53158,
+      "currentTurnout": 82,
+      "incidents": 32,
+      "status": "critical",
+      "lastUpdated": "2025-08-24T07:33:01.365Z"
+    },
+    {
+      "name": "Maharashtra",
+      "totalVoters": 1872603,
+      "pollingStations": 16126,
+      "currentTurnout": 30,
+      "incidents": 49,
+      "status": "normal",
+      "lastUpdated": "2025-08-24T07:33:01.365Z"
+    },
+    {
+      "name": "Manipur",
+      "totalVoters": 3677135,
+      "pollingStations": 29341,
+      "currentTurnout": 89,
+      "incidents": 32,
+      "status": "alert",
+      "lastUpdated": "2025-08-24T07:33:01.365Z"
+    },
+    {
+      "name": "Meghalaya",
+      "totalVoters": 4830881,
+      "pollingStations": 35970,
+      "currentTurnout": 23,
+      "incidents": 12,
+      "status": "alert",
+      "lastUpdated": "2025-08-24T07:33:01.365Z"
+    },
+    {
+      "name": "Mizoram",
+      "totalVoters": 1003804,
+      "pollingStations": 40953,
+      "currentTurnout": 25,
+      "incidents": 13,
+      "status": "critical",
+      "lastUpdated": "2025-08-24T07:33:01.365Z"
+    },
+    {
+      "name": "Nagaland",
+      "totalVoters": 4424034,
+      "pollingStations": 55693,
+      "currentTurnout": 75,
+      "incidents": 30,
+      "status": "alert",
+      "lastUpdated": "2025-08-24T07:33:01.365Z"
+    },
+    {
+      "name": "Odisha",
+      "totalVoters": 4222055,
+      "pollingStations": 16951,
+      "currentTurnout": 42,
+      "incidents": 34,
+      "status": "critical",
+      "lastUpdated": "2025-08-24T07:33:01.365Z"
+    },
+    {
+      "name": "Punjab",
+      "totalVoters": 5374581,
+      "pollingStations": 46924,
+      "currentTurnout": 37,
+      "incidents": 31,
+      "status": "alert",
+      "lastUpdated": "2025-08-24T07:33:01.365Z"
+    },
+    {
+      "name": "Rajasthan",
+      "totalVoters": 2421076,
+      "pollingStations": 11386,
+      "currentTurnout": 64,
+      "incidents": 49,
+      "status": "alert",
+      "lastUpdated": "2025-08-24T07:33:01.365Z"
+    },
+    {
+      "name": "Sikkim",
+      "totalVoters": 1843705,
+      "pollingStations": 23216,
+      "currentTurnout": 22,
+      "incidents": 3,
+      "status": "critical",
+      "lastUpdated": "2025-08-24T07:33:01.365Z"
+    },
+    {
+      "name": "Tamil Nadu",
+      "totalVoters": 5432367,
+      "pollingStations": 14363,
+      "currentTurnout": 63,
+      "incidents": 27,
+      "status": "normal",
+      "lastUpdated": "2025-08-24T07:33:01.365Z"
+    },
+    {
+      "name": "Telangana",
+      "totalVoters": 3552504,
+      "pollingStations": 32780,
+      "currentTurnout": 54,
+      "incidents": 4,
+      "status": "alert",
+      "lastUpdated": "2025-08-24T07:33:01.365Z"
+    },
+    {
+      "name": "Tripura",
+      "totalVoters": 3261757,
+      "pollingStations": 20085,
+      "currentTurnout": 50,
+      "incidents": 24,
+      "status": "alert",
+      "lastUpdated": "2025-08-24T07:33:01.365Z"
+    },
+    {
+      "name": "Uttar Pradesh",
+      "totalVoters": 3033187,
+      "pollingStations": 55504,
+      "currentTurnout": 67,
+      "incidents": 9,
+      "status": "normal",
+      "lastUpdated": "2025-08-24T07:33:01.365Z"
+    },
+    {
+      "name": "Uttarakhand",
+      "totalVoters": 4589320,
+      "pollingStations": 21356,
+      "currentTurnout": 63,
+      "incidents": 25,
+      "status": "critical",
+      "lastUpdated": "2025-08-24T07:33:01.365Z"
+    },
+    {
+      "name": "West Bengal",
+      "totalVoters": 3309111,
+      "pollingStations": 45428,
+      "currentTurnout": 21,
+      "incidents": 48,
+      "status": "critical",
+      "lastUpdated": "2025-08-24T07:33:01.365Z"
+    }
+  ]
+}
